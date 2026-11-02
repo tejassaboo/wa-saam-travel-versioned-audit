@@ -33,9 +33,9 @@ class WaScenario(Enum):
     SPOKANE_ESCALATED_NO_APPROVAL = "spokane-escalated-no-approval"
     CHICAGO_CONFERENCE_VENUE = "chicago-conference-venue"
     CHICAGO_LOYALTY_POINTS = "chicago-loyalty-points"
-    CHICAGO_CAP_EXACT = "chicago-cap-exact"
-    CHICAGO_CAP_ONE_CENT_OVER = "chicago-cap-one-cent-over"
-    BOSTON_ABOVE_150 = "boston-above-150"
+    CHICAGO_FORUM_KING = "chicago-forum-king"
+    CHICAGO_FORUM_TOWER = "chicago-forum-tower"
+    BOSTON_AUDITORS_MEETING = "boston-auditors-meeting"
 
 
 class TravelerType(Enum):

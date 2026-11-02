@@ -80,9 +80,43 @@ def test_messages_name_the_rule_and_the_numbers() -> None:
     assert "321 mi on 2026-01-01 x 725 tenth-cents (R2026A) = 232725" in drive["message"]
     meals = verdict("yakima-day-trip-jul01", {**case("yakima-day-trip-jul01")["expected"], "meals_eligible_same_day": True})
     assert meals["message"] == "meals-eligibility-correct: 659 min in travel status is not at least 660 for an employee"
-    room = verdict("chicago-cap-one-cent-over", {**case("chicago-cap-one-cent-over")["expected"], "lodging_per_night_cents": 48601})
-    assert "basis exception_150 pays 48600 cents a night for this room, not 48601" in room["message"]
+    room = verdict("chicago-forum-tower", {**case("chicago-forum-tower")["expected"], "lodging_per_night_cents": 48600})
+    assert "basis above_150_conference pays 48601 cents a night for this room, not 48600" in room["message"]
     assert "150% cap 48600 = 150% x (23200 + 9200)" in room["message"]
+    venue = verdict(VENUE, {**GOLD_VENUE, "lodging_per_night_cents": 48600})
+    assert "basis exception_150 pays 41000 cents a night for this room, not 48600" in venue["message"]
+    clipped = verdict("chicago-forum-tower", {**case("chicago-forum-tower")["expected"], "lodging_basis": "exception_150", "lodging_per_night_cents": 48600})
+    assert clipped["message"].startswith("lodging-basis-correct: exception_150 instead of above_150_conference: rate 48601, maximum 23200, 150% cap 48600")
+    assert "lowest advertised 48601; 10.30.20.b holds True" in clipped["message"]
+
+
+def test_the_success_message_names_each_part_without_a_python_none() -> None:
+    with_air = verdict("seattle-tokyo-2025-01", case("seattle-tokyo-2025-01")["expected"])["message"]
+    assert with_air == "the audit is correct: cabin business, mileage 0 cents, no lodging, overnight"
+    without_air = verdict("chicago-forum-king", case("chicago-forum-king")["expected"])["message"]
+    assert without_air == "the audit is correct: no airfare, mileage 0 cents, lodging exception_150 at 48600 cents a night, overnight"
+    same_day = verdict("yakima-day-trip-jul01", case("yakima-day-trip-jul01")["expected"])["message"]
+    assert same_day == "the audit is correct: no airfare, mileage 23636 cents, no lodging, same-day meals False"
+    for scenario in SCENARIOS:
+        assert "None" not in verdict(scenario, case(scenario)["expected"])["message"]
+
+
+def test_the_150_percent_twins_differ_by_one_cent_and_change_basis() -> None:
+    """chicago-forum-king ($486.00) and chicago-forum-tower ($486.01) share every other lodging fact, so the
+    one cent decides between 10.30.20.a (exception_150 at the cap) and 10.30.20.b (above_150_conference)."""
+    king, tower = load_scenario("chicago-forum-king")["lodging"], load_scenario("chicago-forum-tower")["lodging"]
+    assert {key: value for key, value in king.items() if key not in ("nightly_rate_cents", "lowest_advertised_rate_cents")} == {
+        key: value for key, value in tower.items() if key not in ("nightly_rate_cents", "lowest_advertised_rate_cents")
+    }
+    assert (king["nightly_rate_cents"], king["lowest_advertised_rate_cents"]) == (48600, 48600)
+    assert (tower["nightly_rate_cents"], tower["lowest_advertised_rate_cents"]) == (48601, 48601)
+    assert case("chicago-forum-king")["expected"]["lodging_basis"] == "exception_150"
+    assert case("chicago-forum-tower")["expected"]["lodging_basis"] == "above_150_conference"
+    # each twin's answer fails on the other
+    swapped = verdict("chicago-forum-king", case("chicago-forum-tower")["expected"])
+    assert swapped["message"].startswith("lodging-amount-fits-basis: basis above_150_conference cannot apply to a 48600-cent room")
+    swapped = verdict("chicago-forum-tower", case("chicago-forum-king")["expected"])
+    assert swapped["message"].startswith("lodging-basis-correct: exception_150 instead of above_150_conference")
 
 
 def test_a_failed_stage_leaves_later_stages_unchecked() -> None:
@@ -217,10 +251,24 @@ def test_verdicts_are_deterministic_plain_json(scenario: str) -> None:
         (["2025-02-30"], False),
         (["2025-1-5"], False),
         (["2024-01-01", "2024-06-01", "2025-01-01", "2025-06-01", "2026-01-01", "2026-07-01", "2026-08-01"], False),
+        (["2023-12-31"], False),  # before the regime table starts
+        (["2024-01-01"], True),  # its first day
+        (["2025-01-01", "2023-06-30", "2022-01-01"], False),
     ],
 )
 def test_rules_input_checks(dates: list, valid: bool) -> None:
     assert verifier.verify_input("get_rules_in_effect", build_output({"dates": dates}, RulesInput))["valid"] is valid
+
+
+def test_dates_before_the_regime_table_are_refused_by_name_and_never_raise() -> None:
+    early = build_output({"dates": ["2025-01-01", "2023-06-30", "2022-01-01"]}, RulesInput)
+    refused = verifier.verify_input("get_rules_in_effect", early)
+    assert refused["valid"] is False and refused["message"] == "2022-01-01, 2023-06-30 before 2024-01-01, where the regime table starts"
+    from contract import RulesOutput
+
+    checked = verifier.verify_output("get_rules_in_effect", early, build_output({"rules": []}, RulesOutput), ".")
+    assert checked["valid"] is False and checked["message"].startswith("verifier-error")
+    json.dumps(refused), json.dumps(checked)
 
 
 def test_the_reference_tool_output_is_checked_against_the_oracle() -> None:

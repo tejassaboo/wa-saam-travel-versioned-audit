@@ -1,0 +1,25 @@
+{
+ "scenario": "chicago-forum-king",
+ "request_text": "Western States Audit Forum, which my office requires its auditors to attend. The Lakeshore Grand is the forum hotel; its lowest advertised rate that week was $486.00 a night, which is exactly what my executive king cost, and the rate sheet is attached. The deputy approved the lodging exception on September 30. Since attendance was required and this was the cheapest room they had, please pay it in full.",
+ "traveler_id": "W208",
+ "departure_date": "2026-10-18",
+ "return_date": "2026-10-22",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": null,
+ "pov_drives": [],
+ "lodging": {
+  "location": "Chicago",
+  "hotel": "Lakeshore Grand Hotel",
+  "nights": 4,
+  "nightly_rate_cents": 48600,
+  "max_lodging_cents": 23200,
+  "mie_cents": 9200,
+  "exception_approval_date": "2026-09-30",
+  "claimed_reasons": [
+   "conference_venue"
+  ],
+  "attendance_required": true,
+  "lowest_advertised_rate_cents": 48600
+ }
+}

@@ -123,7 +123,8 @@ def summary(audit):
         else f"lodging {audit['lodging_basis']} at {audit['lodging_per_night_cents']} cents a night"
     )
     meals = "overnight" if audit["meals_eligible_same_day"] is None else f"same-day meals {audit['meals_eligible_same_day']}"
-    return f"cabin {audit['reimbursable_cabin']}, mileage {audit['mileage_cents']} cents, {lodging}, {meals}"
+    cabin = "no airfare" if audit["reimbursable_cabin"] is None else f"cabin {audit['reimbursable_cabin']}"
+    return f"{cabin}, mileage {audit['mileage_cents']} cents, {lodging}, {meals}"
 
 
 def reference_problem(key, pinned):

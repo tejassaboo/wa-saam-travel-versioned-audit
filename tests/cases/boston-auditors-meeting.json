@@ -1,5 +1,5 @@
 {
- "scenario": "boston-above-150",
+ "scenario": "boston-auditors-meeting",
  "note": "Boston cap (36500 + 9200) x 3 // 2 = 68550. $720 > cap, approved 2026-09-15, conference_venue, attendance required, documented lowest advertised $705 > cap: above_150_conference, paying the lower of $720 and $705 = 70500.",
  "expected": {
   "reimbursable_cabin": null,

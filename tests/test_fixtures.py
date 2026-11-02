@@ -64,7 +64,12 @@ def test_the_handbook_pins_its_sources_and_states_the_toy_rules() -> None:
         "2026-11-02",
         "## Clarifications (toy rules)",
         "The departure date selects the rule regime.",
+        "does not say whether time on the ground at a connection counts; counting it is our toy rule",
+        'The real text says only "in advance"; the calendar-day reading is our toy rule',
+        "The most-economical-room duty of rule 7 is modelled only in step 2",
+        "The real text states no rounding rule; this is our toy rule",
         "## Rules not in scope",
+        'whether a routing is "direct" between the authorized points',
         "first-class or seat-upgrade rules: Chapter 10 has none",
         "## Step plan",
     ):

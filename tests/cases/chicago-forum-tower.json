@@ -1,0 +1,36 @@
+{
+ "scenario": "chicago-forum-tower",
+ "note": "$486.01 is one cent over the 48600 cap. Approved 2026-09-30 before departure, conference_venue claimed, attendance required, and the documented lowest advertised rate $486.01 exceeds the cap: every 10.30.20.b condition holds, so above_150_conference paying the lower of the rate and the lowest advertised rate, 48601. The twin chicago-forum-king, one cent cheaper, stays under 10.30.20.a. The note's offer to be clipped to $486.00 is not the rule.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 0,
+  "lodging_basis": "above_150_conference",
+  "lodging_per_night_cents": 48601,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "clips one cent over the cap to the cap, as the note offers",
+   "change": {
+    "lodging_basis": "exception_150",
+    "lodging_per_night_cents": 48600
+   },
+   "reason": "lodging-basis-correct"
+  },
+  {
+   "why": "names the above-150% basis but pays the 150% cap",
+   "change": {
+    "lodging_per_night_cents": 48600
+   },
+   "reason": "lodging-amount-fits-basis"
+  },
+  {
+   "why": "drops to the maximum for one cent over",
+   "change": {
+    "lodging_basis": "capped_at_max",
+    "lodging_per_night_cents": 23200
+   },
+   "reason": "lodging-basis-correct"
+  }
+ ]
+}

@@ -7,11 +7,11 @@ from helpers import ROOT, SCENARIOS, case, verdict
 from scripted_agent import run
 from slimconfig import build_output, plain_output
 
-from contract import TOOLS, LodgingBasis, Tool, WaCabin, WaVoucherOutput
+from contract import TOOLS, LodgingBasis, Tool, WaCabin, WaScenario, WaVoucherOutput
 from plugin import get_rules_in_effect, get_voucher
 from plugin.fixtures import scenario as load_scenario
 from plugin.fixtures import world
-from plugin.rules import oracle
+from plugin.rules import drive_tenth_cents, mileage_cents, oracle, round_half_up_tenths
 
 IMPLEMENTATIONS = {Tool.GET_VOUCHER: get_voucher, Tool.GET_RULES_IN_EFFECT: get_rules_in_effect}
 MAX_TOOL_CALLS = 4  # plus submit, within the hosted 6 steps whose last may not call tools
@@ -95,3 +95,23 @@ def test_the_signature_pair_differs_only_by_departure_date() -> None:
     assert [segment["in_air_minutes"] for segment in old["air"]["segments"]] == [segment["in_air_minutes"] for segment in new["air"]["segments"]]
     assert case("seattle-tokyo-2024-12")["expected"]["reimbursable_cabin"] == "tourist"
     assert case("seattle-tokyo-2025-01")["expected"]["reimbursable_cabin"] == "business"
+
+
+def test_no_scenario_id_names_a_graded_value() -> None:
+    """Ids describe the trip, never the verdict: no Enum value of the graded output, nor the words the
+    lodging bases are built from, appears in any id (facts may; they are in the typed fields anyway)."""
+    verdict_words = [member.value for member in LodgingBasis] + [member.value for member in WaCabin]
+    verdict_words += ["above-150", "within-max", "capped", "exception", "eligible"]
+    for member in WaScenario:
+        for word in verdict_words:
+            assert word.replace("_", "-") not in member.value, (member.value, word)
+
+
+@pytest.mark.parametrize("scenario", SCENARIOS)
+def test_rounding_once_after_the_sum_equals_rounding_each_drive_in_every_bundled_scenario(scenario: str) -> None:
+    """C8 rounds once after summing. No bundled voucher has two drives that each end in a half cent, so the
+    two readings agree on every scenario; test_rules shows where they would differ (1 + 1 mile at $0.725)."""
+    facts = load_scenario(scenario)
+    tenths = [drive_tenth_cents(world(), drive) for drive in facts["pov_drives"]]
+    assert mileage_cents(world(), facts) == round_half_up_tenths(sum(tenths)) == sum(round_half_up_tenths(part) for part in tenths)
+    assert mileage_cents(world(), facts) == case(scenario)["expected"]["mileage_cents"]

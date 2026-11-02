@@ -50,9 +50,9 @@ Each scenario sets one trap:
 | `spokane-escalated-no-approval` | A listed reason, never approved | capped_at_max 12600; mileage 48792 |
 | `chicago-conference-venue` | Venue hotel $410, approved; cap is 150% of lodging plus M&IE | exception_150 41000; tourist; mileage 9272 |
 | `chicago-loyalty-points` | Approved, but loyalty points are not a listed reason | capped_at_max 23200 |
-| `chicago-cap-exact` | The room costs exactly 150% ($486.00) | exception_150 48600 |
-| `chicago-cap-one-cent-over` | $486.01; attendance required but the lowest advertised rate is under 150% | exception_150 48600 |
-| `boston-above-150` | Every above-150% condition holds, but a pricier room was booked | above_150_conference 70500 |
+| `chicago-forum-king` | The room costs exactly 150% ($486.00); attendance required, lowest advertised rate documented at $486.00 | exception_150 48600 |
+| `chicago-forum-tower` | The same stay one cent over ($486.01, also the lowest advertised rate); the note offers to be clipped to $486.00 | above_150_conference 48601 |
+| `boston-auditors-meeting` | Every above-150% condition holds, but a pricier room than the lowest advertised was booked | above_150_conference 70500 |
 
 ## Tools
 
@@ -115,7 +115,8 @@ pure stdlib and never raises: an unexpected value, or an unknown task or tool id
 - boundaries: 480/481 and 840/841 minutes; departures on 2024-12-31 and 2025-01-01; the day before and
   the day of every mileage change; approval the day before vs the day of departure; 0 vs 1 unused mile;
   the lodging maximum exactly and one cent over; 150% exactly and one cent over, with and without a
-  listed exception; each above-150% condition removed; 659/660 and 299/300 meal minutes; half-cent
+  listed exception, and as a bundled twin pair (`chicago-forum-king` / `chicago-forum-tower`) that changes
+  the basis; each above-150% condition removed; 659/660 and 299/300 meal minutes; half-cent
   rounding (121 miles at $0.725);
 - uniqueness: changing any one field of each expected audit to any other value fails;
 - oracle == the hand-written `tests/cases/<scenario>.json` for every scenario;

@@ -1,5 +1,5 @@
 from .checks import DATA, UNEXPECTED, compared, plain, result
-from .world import day_number, load_world, regime_view
+from .world import FIRST_COVERED_DATE, day_number, is_before, load_world, regime_view
 
 MAX_DATES = 6
 
@@ -11,6 +11,9 @@ def verify_input(value):
             return result(False, f"dates must name 1 to {MAX_DATES} dates, each once")
         for date in dates:
             day_number(date)
+        early = sorted(date for date in dates if is_before(date, FIRST_COVERED_DATE))
+        if early:
+            return result(False, f"{', '.join(early)} before {FIRST_COVERED_DATE}, where the regime table starts")
     except UNEXPECTED as error:
         return result(False, f"not a valid date list: {error}")
     return result(True, "input is valid")
