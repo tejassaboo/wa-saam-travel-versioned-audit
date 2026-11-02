@@ -29,7 +29,7 @@ ORDER = [
     "lodging-amount-correct",
     "meals-eligibility-correct",
 ]
-VENUE = "chicago-conference-venue"
+VENUE = "chicago-forum-lakeshore"
 GOLD_VENUE = case(VENUE)["expected"]
 
 
@@ -61,24 +61,24 @@ def test_every_reason_code_after_the_answer_key_is_exercised_by_some_case() -> N
 
 
 def test_the_signature_flight_gets_different_verdicts_across_2025_01_01() -> None:
-    old = verdict("seattle-tokyo-2024-12", case("seattle-tokyo-2025-01")["expected"])
+    old = verdict("seattle-tokyo-seafood", case("seattle-tokyo-buyers")["expected"])
     assert old["valid"] is False and old["message"].startswith(
         "cabin-correct: business instead of tourist, because scheduled one-way 600 min is not > 840 (regime R2024"
     )
-    new = verdict("seattle-tokyo-2025-01", case("seattle-tokyo-2024-12")["expected"])
+    new = verdict("seattle-tokyo-buyers", case("seattle-tokyo-seafood")["expected"])
     assert new["valid"] is False and new["message"].startswith("cabin-correct: tourist instead of business, because")
     assert "600 min is > 480 (regime R2025, in effect on departure 2025-01-15)" in new["message"]
 
 
 def test_messages_name_the_rule_and_the_numbers() -> None:
-    late = verdict("seattle-tokyo-late-approval", {**case("seattle-tokyo-late-approval")["expected"], "reimbursable_cabin": "business"})
+    late = verdict("seattle-tokyo-apples", {**case("seattle-tokyo-apples")["expected"], "reimbursable_cabin": "business"})
     assert "business class approved 2025-02-18, not before departure 2025-02-10" in late["message"]
-    miles = verdict("seattle-tokyo-miles-unspent", {**case("seattle-tokyo-miles-unspent")["expected"], "reimbursable_cabin": "business"})
+    miles = verdict("seattle-tokyo-health", {**case("seattle-tokyo-health")["expected"], "reimbursable_cabin": "business"})
     assert "40000 state frequent-flyer miles remain unspent" in miles["message"]
-    drive = verdict("spokane-new-year-drive", {**case("spokane-new-year-drive")["expected"], "mileage_cents": 44940})
+    drive = verdict("spokane-arena-inspection", {**case("spokane-arena-inspection")["expected"], "mileage_cents": 44940})
     assert "321 mi on 2025-12-31 x 700 tenth-cents (R2025) = 224700" in drive["message"]
     assert "321 mi on 2026-01-01 x 725 tenth-cents (R2026A) = 232725" in drive["message"]
-    meals = verdict("yakima-day-trip-jul01", {**case("yakima-day-trip-jul01")["expected"], "meals_eligible_same_day": True})
+    meals = verdict("yakima-plot-followup", {**case("yakima-plot-followup")["expected"], "meals_eligible_same_day": True})
     assert meals["message"] == "meals-eligibility-correct: 659 min in travel status is not at least 660 for an employee"
     room = verdict("chicago-forum-tower", {**case("chicago-forum-tower")["expected"], "lodging_per_night_cents": 48600})
     assert "basis above_150_conference pays 48601 cents a night for this room, not 48600" in room["message"]
@@ -91,11 +91,11 @@ def test_messages_name_the_rule_and_the_numbers() -> None:
 
 
 def test_the_success_message_names_each_part_without_a_python_none() -> None:
-    with_air = verdict("seattle-tokyo-2025-01", case("seattle-tokyo-2025-01")["expected"])["message"]
+    with_air = verdict("seattle-tokyo-buyers", case("seattle-tokyo-buyers")["expected"])["message"]
     assert with_air == "the audit is correct: cabin business, mileage 0 cents, no lodging, overnight"
     without_air = verdict("chicago-forum-king", case("chicago-forum-king")["expected"])["message"]
     assert without_air == "the audit is correct: no airfare, mileage 0 cents, lodging exception_150 at 48600 cents a night, overnight"
-    same_day = verdict("yakima-day-trip-jul01", case("yakima-day-trip-jul01")["expected"])["message"]
+    same_day = verdict("yakima-plot-followup", case("yakima-plot-followup")["expected"])["message"]
     assert same_day == "the audit is correct: no airfare, mileage 23636 cents, no lodging, same-day meals False"
     for scenario in SCENARIOS:
         assert "None" not in verdict(scenario, case(scenario)["expected"])["message"]
@@ -134,7 +134,7 @@ def test_a_message_counts_the_other_failures() -> None:
 
 
 def test_cabin_within_flown_catches_business_paid_on_a_tourist_ticket() -> None:
-    facts = load_scenario("seattle-tokyo-2025-01")
+    facts = load_scenario("seattle-tokyo-buyers")
     facts = {**facts, "air": {**facts["air"], "cabin_flown": "tourist"}}
     key = oracle(world(), facts)
     assert key["reimbursable_cabin"] == "tourist"  # C6: never above what was flown
@@ -151,9 +151,9 @@ def test_lodging_amount_correct_is_a_backstop_after_the_basis_checks() -> None:
 
 
 def test_a_wrong_answer_key_is_caught_before_the_submission() -> None:
-    gold = case("seattle-tokyo-2025-01")["expected"]
+    gold = case("seattle-tokyo-buyers")["expected"]
     wrong_key = build_output({**gold, "reimbursable_cabin": "tourist"}, WaVoucherOutput)
-    result = verifier.verify_task(TASK, arguments("seattle-tokyo-2025-01"), build_output(gold, WaVoucherOutput), wrong_key, ".")
+    result = verifier.verify_task(TASK, arguments("seattle-tokyo-buyers"), build_output(gold, WaVoucherOutput), wrong_key, ".")
     assert result["valid"] is False and result["message"].startswith("reference-matches-oracle")
 
 
@@ -273,5 +273,5 @@ def test_dates_before_the_regime_table_are_refused_by_name_and_never_raise() -> 
 
 def test_the_reference_tool_output_is_checked_against_the_oracle() -> None:
     good = verifier.verify_output("compute_wa_voucher", arguments(VENUE), reference(VENUE), ".")
-    bad = verifier.verify_output("compute_wa_voucher", arguments(VENUE), reference("chicago-loyalty-points"), ".")
+    bad = verifier.verify_output("compute_wa_voucher", arguments(VENUE), reference("chicago-forum-colleague"), ".")
     assert good["valid"] is True and bad["valid"] is False

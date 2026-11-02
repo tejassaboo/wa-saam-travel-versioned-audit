@@ -9,7 +9,7 @@ Python verifier, with no LLM, checks the audit against an oracle that it compute
 ## Task
 
 - **Input:** `ScenarioInput` with a single field, `scenario`, which names one of sixteen bundled vouchers,
-  for example `{"scenario": "seattle-tokyo-2025-01"}`.
+  for example `{"scenario": "seattle-tokyo-buyers"}`.
 - **Tools:** the agent calls `get_voucher`, then `get_rules_in_effect` once (skipped when no date
   matters), then `submit`. That is at most three of the six hosted steps.
 - **Output:** `WaVoucherOutput`, with these fields:
@@ -37,22 +37,22 @@ Each scenario sets one trap:
 
 | Scenario | Trap | Correct audit |
 |---|---|---|
-| `seattle-tokyo-2024-12` | A 600-min flight to Tokyo departing 2024-12-15, approved, miles exhausted | tourist (600 is not > 840) |
-| `seattle-tokyo-2025-01` | The same flight departing 2025-01-15, but booked and approved in 2024 | business (600 > 480) |
-| `seattle-tokyo-late-approval` | Business approved after the trip | tourist |
-| `seattle-tokyo-miles-unspent` | 40,000 state miles still unspent | tourist |
-| `olympia-honolulu-connection` | In-air 455 min, but 625 scheduled with the connection | business; mileage 8540 |
-| `boston-first-class` | First class on a domestic flight; room under the maximum | tourist; within_max 32900 |
-| `yakima-day-trip-jun30` | 311 mi at $0.725 (half cent); exactly 11 h | mileage 22548; meals true |
-| `yakima-day-trip-jul01` | 311 mi on the day $0.76 starts; 10 h 59 min | mileage 23636; meals false |
-| `volunteer-day-trip-dec31` | A volunteer on the eve of 25A-01; exactly 5 h | mileage 5829; meals true |
-| `spokane-new-year-drive` | Drives on 2025-12-31 and 2026-01-01; the note asks for one rate | mileage 45743 |
-| `spokane-escalated-no-approval` | A listed reason, never approved | capped_at_max 12600; mileage 48792 |
-| `chicago-conference-venue` | Venue hotel $410, approved; cap is 150% of lodging plus M&IE | exception_150 41000; tourist; mileage 9272 |
-| `chicago-loyalty-points` | Approved, but loyalty points are not a listed reason | capped_at_max 23200 |
+| `seattle-tokyo-seafood` | A 600-min flight to Tokyo departing 2024-12-15, approved, miles exhausted | tourist (600 is not > 840) |
+| `seattle-tokyo-buyers` | The same flight departing 2025-01-15, but booked and approved in 2024 | business (600 > 480) |
+| `seattle-tokyo-apples` | Business approved after the trip | tourist |
+| `seattle-tokyo-health` | 40,000 state miles still unspent | tourist |
+| `olympia-honolulu-reef` | In-air 455 min, but 625 scheduled with the connection | business; mileage 8540 |
+| `boston-transport-session` | First class on a domestic flight; room under the maximum | tourist; within_max 32900 |
+| `yakima-riparian-plots` | 311 mi at $0.725 (half cent); exactly 11 h | mileage 22548; meals true |
+| `yakima-plot-followup` | 311 mi on the day $0.76 starts; 10 h 59 min | mileage 23636; meals false |
+| `millersylvania-debris-cleanup` | A volunteer on the eve of 25A-01; exactly 5 h | mileage 5829; meals true |
+| `spokane-arena-inspection` | Drives on 2025-12-31 and 2026-01-01; the note asks for one rate | mileage 45743 |
+| `spokane-crane-audit` | A listed reason, never approved | capped_at_max 12600; mileage 48792 |
+| `chicago-forum-lakeshore` | Venue hotel $410, approved; cap is 150% of lodging plus M&IE | exception_150 41000; tourist; mileage 9272 |
+| `chicago-forum-colleague` | Approved, but loyalty points are not a listed reason | capped_at_max 23200 |
 | `chicago-forum-king` | The room costs exactly 150% ($486.00); attendance required, lowest advertised rate documented at $486.00 | exception_150 48600 |
 | `chicago-forum-tower` | The same stay one cent over ($486.01, also the lowest advertised rate); the note offers to be clipped to $486.00 | above_150_conference 48601 |
-| `boston-auditors-meeting` | Every above-150% condition holds, but a pricier room than the lowest advertised was booked | above_150_conference 70500 |
+| `boston-state-auditors` | Every above-150% condition holds, but a pricier room than the lowest advertised was booked | above_150_conference 70500 |
 
 ## Tools
 
@@ -158,5 +158,5 @@ uv run ruff check .
 ```
 
 To run the agent, use `nanoagent plugin agent config=agent.yaml home=<run folder>` with `arguments` set
-to a JSON file such as `{"scenario": "seattle-tokyo-2025-01"}`. It needs `OPENROUTER_API_KEY` in the
+to a JSON file such as `{"scenario": "seattle-tokyo-buyers"}`. It needs `OPENROUTER_API_KEY` in the
 environment, not in this repo.

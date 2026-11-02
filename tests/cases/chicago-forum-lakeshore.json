@@ -1,5 +1,5 @@
 {
- "scenario": "chicago-conference-venue",
+ "scenario": "chicago-forum-lakeshore",
  "note": "Venue hotel $410 > $232 maximum, approved 2026-09-28 before the 2026-10-18 departure, conference_venue listed: exception_150, min(41000, (23200 + 9200) x 3 // 2 = 48600) = 41000. SEA-ORD is domestic: tourist. Drives 122 mi x 760 = 9272.",
  "expected": {
   "reimbursable_cabin": "tourist",

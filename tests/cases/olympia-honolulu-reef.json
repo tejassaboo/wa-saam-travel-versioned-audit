@@ -1,5 +1,5 @@
 {
- "scenario": "olympia-honolulu-connection",
+ "scenario": "olympia-honolulu-reef",
  "note": "SEA-SFO-HNL: in-air 125 + 330 = 455, but scheduled one-way 625 with the connection > 480 (R2025); HNL is outside the continental US; approved 2025-02-20, miles exhausted: business. Drives 2 x 61 mi x 700 = 85400 tenths = 8540 cents.",
  "expected": {
   "reimbursable_cabin": "business",

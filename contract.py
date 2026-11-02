@@ -20,22 +20,22 @@ class Task(Enum):
 class WaScenario(Enum):
     """One travel voucher per member; its facts are bundled with the plugin."""
 
-    SEATTLE_TOKYO_2024_12 = "seattle-tokyo-2024-12"
-    SEATTLE_TOKYO_2025_01 = "seattle-tokyo-2025-01"
-    SEATTLE_TOKYO_LATE_APPROVAL = "seattle-tokyo-late-approval"
-    SEATTLE_TOKYO_MILES_UNSPENT = "seattle-tokyo-miles-unspent"
-    OLYMPIA_HONOLULU_CONNECTION = "olympia-honolulu-connection"
-    BOSTON_FIRST_CLASS = "boston-first-class"
-    YAKIMA_DAY_TRIP_JUN30 = "yakima-day-trip-jun30"
-    YAKIMA_DAY_TRIP_JUL01 = "yakima-day-trip-jul01"
-    VOLUNTEER_DAY_TRIP_DEC31 = "volunteer-day-trip-dec31"
-    SPOKANE_NEW_YEAR_DRIVE = "spokane-new-year-drive"
-    SPOKANE_ESCALATED_NO_APPROVAL = "spokane-escalated-no-approval"
-    CHICAGO_CONFERENCE_VENUE = "chicago-conference-venue"
-    CHICAGO_LOYALTY_POINTS = "chicago-loyalty-points"
+    SEATTLE_TOKYO_SEAFOOD = "seattle-tokyo-seafood"
+    SEATTLE_TOKYO_BUYERS = "seattle-tokyo-buyers"
+    SEATTLE_TOKYO_APPLES = "seattle-tokyo-apples"
+    SEATTLE_TOKYO_HEALTH = "seattle-tokyo-health"
+    OLYMPIA_HONOLULU_REEF = "olympia-honolulu-reef"
+    BOSTON_TRANSPORT_SESSION = "boston-transport-session"
+    YAKIMA_RIPARIAN_PLOTS = "yakima-riparian-plots"
+    YAKIMA_PLOT_FOLLOWUP = "yakima-plot-followup"
+    MILLERSYLVANIA_DEBRIS_CLEANUP = "millersylvania-debris-cleanup"
+    SPOKANE_ARENA_INSPECTION = "spokane-arena-inspection"
+    SPOKANE_CRANE_AUDIT = "spokane-crane-audit"
+    CHICAGO_FORUM_LAKESHORE = "chicago-forum-lakeshore"
+    CHICAGO_FORUM_COLLEAGUE = "chicago-forum-colleague"
     CHICAGO_FORUM_KING = "chicago-forum-king"
     CHICAGO_FORUM_TOWER = "chicago-forum-tower"
-    BOSTON_AUDITORS_MEETING = "boston-auditors-meeting"
+    BOSTON_STATE_AUDITORS = "boston-state-auditors"
 
 
 class TravelerType(Enum):
@@ -86,7 +86,7 @@ class LodgingBasis(Enum):
 
 @dataclass
 class ScenarioInput(Output):
-    scenario: Annotated[WaScenario, "Which travel voucher to audit, e.g. seattle-tokyo-2025-01"]
+    scenario: Annotated[WaScenario, "Which travel voucher to audit, e.g. seattle-tokyo-buyers"]
 
 
 @dataclass

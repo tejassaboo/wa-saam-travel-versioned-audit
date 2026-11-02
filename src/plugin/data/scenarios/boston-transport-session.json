@@ -1,5 +1,5 @@
 {
- "scenario": "boston-first-class",
+ "scenario": "boston-transport-session",
  "request_text": "Transportation research board session in Boston. The flight was long (five and a half hours) so I upgraded to first class at the gate; please reimburse first. I have about 12,000 agency miles. Three nights at the Harborview Commons at $329 a night.",
  "traveler_id": "W210",
  "departure_date": "2026-10-05",

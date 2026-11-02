@@ -1,5 +1,5 @@
 {
- "scenario": "seattle-tokyo-late-approval",
+ "scenario": "seattle-tokyo-apples",
  "note": "600 min > 480 under R2025, but business approval 2025-02-18 came after the 2025-02-10 departure: tourist.",
  "expected": {
   "reimbursable_cabin": "tourist",

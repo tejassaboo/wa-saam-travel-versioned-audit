@@ -1,5 +1,5 @@
 {
- "scenario": "boston-first-class",
+ "scenario": "boston-transport-session",
  "note": "SEA-BOS is entirely in the continental US, so tourist even though first was flown; Boston $329 <= the $365 maximum: within_max 32900.",
  "expected": {
   "reimbursable_cabin": "tourist",

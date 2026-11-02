@@ -1,5 +1,5 @@
 {
- "scenario": "seattle-tokyo-miles-unspent",
+ "scenario": "seattle-tokyo-health",
  "note": "600 min > 480 and approved in advance, but 40000 state miles remain: tourist.",
  "expected": {
   "reimbursable_cabin": "tourist",

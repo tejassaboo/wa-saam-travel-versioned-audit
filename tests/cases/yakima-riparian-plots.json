@@ -1,5 +1,5 @@
 {
- "scenario": "yakima-day-trip-jun30",
+ "scenario": "yakima-riparian-plots",
  "note": "311 mi on 2026-06-30 at 725 tenth-cents (R2026A) = 225475 tenths, rounds half up to 22548; 660 min is at least 660: meals true.",
  "expected": {
   "reimbursable_cabin": null,

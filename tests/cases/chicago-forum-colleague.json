@@ -1,5 +1,5 @@
 {
- "scenario": "chicago-loyalty-points",
+ "scenario": "chicago-forum-colleague",
  "note": "$410 > $232 and approved, but loyalty_program and personal_preference are not listed: capped_at_max 23200.",
  "expected": {
   "reimbursable_cabin": null,

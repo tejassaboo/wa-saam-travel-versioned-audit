@@ -65,8 +65,8 @@ def test_rules_refuse_bad_input(dates, match) -> None:
 
 
 def test_a_changed_tool_output_is_caught() -> None:
-    given = build_output({"scenario": "seattle-tokyo-2025-01"}, ScenarioInput)
-    plain = plain_output(voucher("seattle-tokyo-2025-01"))
+    given = build_output({"scenario": "seattle-tokyo-buyers"}, ScenarioInput)
+    plain = plain_output(voucher("seattle-tokyo-buyers"))
     changed = build_output({**plain, "departure_date": "2024-12-15"}, VoucherOutput)
     result = verifier.verify_output("get_voucher", given, changed, ".")
     assert result["valid"] is False and "departure_date" in result["message"]
@@ -81,7 +81,7 @@ def test_the_mcp_server_serves_every_tool() -> None:
         async with stdio_client(server) as (read, write), ClientSession(read, write) as client:
             await client.initialize()
             names = sorted(tool.name for tool in (await client.list_tools()).tools)
-            answer = await client.call_tool("get_voucher", {"scenario": "spokane-new-year-drive"})
+            answer = await client.call_tool("get_voucher", {"scenario": "spokane-arena-inspection"})
             regime = await client.call_tool("get_rules_in_effect", {"dates": ["2026-01-01"]})
             refused = await client.call_tool("get_rules_in_effect", {"dates": []})
             return names, answer, regime, refused

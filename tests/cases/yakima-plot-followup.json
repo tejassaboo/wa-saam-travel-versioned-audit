@@ -1,5 +1,5 @@
 {
- "scenario": "yakima-day-trip-jul01",
+ "scenario": "yakima-plot-followup",
  "note": "311 mi on 2026-07-01 at 760 tenth-cents (R2026B) = 23636; 659 min is under 660: meals false.",
  "expected": {
   "reimbursable_cabin": null,

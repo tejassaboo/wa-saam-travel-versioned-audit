@@ -89,12 +89,12 @@ def test_request_text_is_flavour_only(scenario: str) -> None:
 
 def test_the_signature_pair_differs_only_by_departure_date() -> None:
     """The same flight, approval lead time and miles: only the departure date's regime changes the verdict."""
-    old, new = load_scenario("seattle-tokyo-2024-12"), load_scenario("seattle-tokyo-2025-01")
+    old, new = load_scenario("seattle-tokyo-seafood"), load_scenario("seattle-tokyo-buyers")
     keep = ("origin", "destination", "scheduled_one_way_minutes", "cabin_flown", "unused_state_miles")
     assert {key: old["air"][key] for key in keep} == {key: new["air"][key] for key in keep}
     assert [segment["in_air_minutes"] for segment in old["air"]["segments"]] == [segment["in_air_minutes"] for segment in new["air"]["segments"]]
-    assert case("seattle-tokyo-2024-12")["expected"]["reimbursable_cabin"] == "tourist"
-    assert case("seattle-tokyo-2025-01")["expected"]["reimbursable_cabin"] == "business"
+    assert case("seattle-tokyo-seafood")["expected"]["reimbursable_cabin"] == "tourist"
+    assert case("seattle-tokyo-buyers")["expected"]["reimbursable_cabin"] == "business"
 
 
 def test_no_scenario_id_names_a_graded_value() -> None:

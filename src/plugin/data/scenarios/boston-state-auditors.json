@@ -1,5 +1,5 @@
 {
- "scenario": "boston-auditors-meeting",
+ "scenario": "boston-state-auditors",
  "request_text": "I presented at the national state-auditors meeting in Boston (attendance required by my office). The Back Bay Conference Hotel's lowest advertised rate that week was $705 and it's documented on the voucher, but I booked a $720 room with a desk. The deputy approved the above-150% exception on September 15.",
  "traveler_id": "W213",
  "departure_date": "2026-10-12",

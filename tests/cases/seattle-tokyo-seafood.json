@@ -1,5 +1,5 @@
 {
- "scenario": "seattle-tokyo-2024-12",
+ "scenario": "seattle-tokyo-seafood",
  "note": "SEA-NRT nonstop, scheduled 600 min, departs 2024-12-15: regime R2024 needs > 840, so tourist despite advance approval and exhausted miles.",
  "expected": {
   "reimbursable_cabin": "tourist",

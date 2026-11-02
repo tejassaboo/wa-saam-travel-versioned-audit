@@ -1,5 +1,5 @@
 {
- "scenario": "volunteer-day-trip-dec31",
+ "scenario": "millersylvania-debris-cleanup",
  "note": "Volunteer, 87 mi on 2024-12-31 at 670 (R2024, the day before 25A-01) = 5829; 300 min is at least the volunteer's 300: meals true.",
  "expected": {
   "reimbursable_cabin": null,

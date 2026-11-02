@@ -1,5 +1,5 @@
 {
- "scenario": "spokane-escalated-no-approval",
+ "scenario": "spokane-crane-audit",
  "note": "Spokane $149 > $126 maximum; escalated_costs is listed, but no exception was approved: capped_at_max 12600. Drives 642 mi at 760 (R2026B) = 48792.",
  "expected": {
   "reimbursable_cabin": null,

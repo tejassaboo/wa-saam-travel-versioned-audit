@@ -1,5 +1,5 @@
 {
- "scenario": "spokane-new-year-drive",
+ "scenario": "spokane-arena-inspection",
  "note": "321 mi on 2025-12-31 at 700 (R2025) = 224700 plus 321 mi on 2026-01-01 at 725 (R2026A) = 232725; 457425 tenths rounds half up to 45743. Each drive takes its own date's rate, whatever the note asks.",
  "expected": {
   "reimbursable_cabin": null,
