@@ -1,0 +1,42 @@
+{
+ "scenario": "boston-first-class",
+ "note": "SEA-BOS is entirely in the continental US, so tourist even though first was flown; Boston $329 <= the $365 maximum: within_max 32900.",
+ "expected": {
+  "reimbursable_cabin": "tourist",
+  "mileage_cents": 0,
+  "lodging_basis": "within_max",
+  "lodging_per_night_cents": 32900,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "reimburses business for a domestic first-class ticket",
+   "change": {
+    "reimbursable_cabin": "business"
+   },
+   "reason": "cabin-correct"
+  },
+  {
+   "why": "caps a room that is already under the maximum",
+   "change": {
+    "lodging_basis": "capped_at_max",
+    "lodging_per_night_cents": 36500
+   },
+   "reason": "lodging-amount-fits-basis"
+  },
+  {
+   "why": "pays the maximum instead of the actual rate",
+   "change": {
+    "lodging_per_night_cents": 36500
+   },
+   "reason": "lodging-amount-fits-basis"
+  },
+  {
+   "why": "leaves the basis null although lodging is claimed",
+   "change": {
+    "lodging_basis": null
+   },
+   "reason": "lodging-matches-claim"
+  }
+ ]
+}

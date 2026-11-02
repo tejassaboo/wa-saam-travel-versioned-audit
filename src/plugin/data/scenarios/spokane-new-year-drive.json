@@ -1,0 +1,25 @@
+{
+ "scenario": "spokane-new-year-drive",
+ "request_text": "Covered the New Year's Eve crowd-safety inspection at the Spokane arena. Drove 321 miles out on December 31 and 321 back on January 1 in my own car. I stayed with my brother, so no hotel. The trip started on December 31, so please use last year's rate for all of it.",
+ "traveler_id": "W212",
+ "departure_date": "2025-12-31",
+ "return_date": "2026-01-01",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": null,
+ "pov_drives": [
+  {
+   "date": "2025-12-31",
+   "from_place": "Olympia",
+   "to_place": "Spokane",
+   "miles": 321
+  },
+  {
+   "date": "2026-01-01",
+   "from_place": "Spokane",
+   "to_place": "Olympia",
+   "miles": 321
+  }
+ ],
+ "lodging": null
+}

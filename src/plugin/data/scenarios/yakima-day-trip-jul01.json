@@ -1,0 +1,19 @@
+{
+ "scenario": "yakima-day-trip-jul01",
+ "request_text": "Second Yakima plot visit, same 311-mile round trip in my own truck. Left at 6:00, back at 16:59, so call it eleven hours. Please add the meal allowance like yesterday.",
+ "traveler_id": "W204",
+ "departure_date": "2026-07-01",
+ "return_date": "2026-07-01",
+ "overnight": false,
+ "travel_status_minutes": 659,
+ "air": null,
+ "pov_drives": [
+  {
+   "date": "2026-07-01",
+   "from_place": "Olympia",
+   "to_place": "Yakima and back",
+   "miles": 311
+  }
+ ],
+ "lodging": null
+}

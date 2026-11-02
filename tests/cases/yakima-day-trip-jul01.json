@@ -1,0 +1,34 @@
+{
+ "scenario": "yakima-day-trip-jul01",
+ "note": "311 mi on 2026-07-01 at 760 tenth-cents (R2026B) = 23636; 659 min is under 660: meals false.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 23636,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": false
+ },
+ "broken": [
+  {
+   "why": "keeps the June rate on the day of the change",
+   "change": {
+    "mileage_cents": 22548
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "rounds 659 minutes up to eleven hours",
+   "change": {
+    "meals_eligible_same_day": true
+   },
+   "reason": "meals-eligibility-correct"
+  },
+  {
+   "why": "claims a cabin with no flight",
+   "change": {
+    "reimbursable_cabin": "tourist"
+   },
+   "reason": "cabin-matches-air"
+  }
+ ]
+}

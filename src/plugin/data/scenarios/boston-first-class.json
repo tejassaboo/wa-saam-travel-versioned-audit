@@ -1,0 +1,41 @@
+{
+ "scenario": "boston-first-class",
+ "request_text": "Transportation research board session in Boston. The flight was long (five and a half hours) so I upgraded to first class at the gate; please reimburse first. I have about 12,000 agency miles. Three nights at the Harborview Commons at $329 a night.",
+ "traveler_id": "W210",
+ "departure_date": "2026-10-05",
+ "return_date": "2026-10-08",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "BOS",
+  "segments": [
+   {
+    "flight": "SA 300",
+    "origin": "SEA",
+    "destination": "BOS",
+    "depart_local": "2026-10-05T08:15",
+    "arrive_local": "2026-10-05T16:45",
+    "in_air_minutes": 330
+   }
+  ],
+  "scheduled_one_way_minutes": 330,
+  "cabin_flown": "first",
+  "booking_date": "2026-09-02",
+  "business_approval_date": null,
+  "unused_state_miles": 12000
+ },
+ "pov_drives": [],
+ "lodging": {
+  "location": "Boston",
+  "hotel": "Harborview Commons",
+  "nights": 3,
+  "nightly_rate_cents": 32900,
+  "max_lodging_cents": 36500,
+  "mie_cents": 9200,
+  "exception_approval_date": null,
+  "claimed_reasons": [],
+  "attendance_required": false,
+  "lowest_advertised_rate_cents": null
+ }
+}

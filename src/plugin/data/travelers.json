@@ -1,0 +1,16 @@
+[
+ {"traveler_id": "W201", "name": "Mariko Lindqvist", "agency": "Department of Commerce, Export Assistance", "traveler_type": "employee"},
+ {"traveler_id": "W202", "name": "Daniel Okafor", "agency": "Department of Agriculture, Trade Development", "traveler_type": "employee"},
+ {"traveler_id": "W203", "name": "Priya Ramaswamy", "agency": "Department of Ecology", "traveler_type": "employee"},
+ {"traveler_id": "W204", "name": "Tomas Herrera", "agency": "Department of Natural Resources", "traveler_type": "employee"},
+ {"traveler_id": "W205", "name": "Grace Whitfield", "agency": "Washington State Parks, volunteer trail crew", "traveler_type": "volunteer"},
+ {"traveler_id": "W206", "name": "Elliot Brandt", "agency": "Office of the State Auditor", "traveler_type": "employee"},
+ {"traveler_id": "W207", "name": "Hannah Cho", "agency": "Office of the State Auditor", "traveler_type": "employee"},
+ {"traveler_id": "W208", "name": "Rafael Nunes", "agency": "Office of the State Auditor", "traveler_type": "employee"},
+ {"traveler_id": "W209", "name": "Aisha Bello", "agency": "Office of the State Auditor", "traveler_type": "employee"},
+ {"traveler_id": "W210", "name": "Colin MacLeod", "agency": "Department of Transportation", "traveler_type": "employee"},
+ {"traveler_id": "W211", "name": "Sofia Petrakis", "agency": "Department of Health", "traveler_type": "employee"},
+ {"traveler_id": "W212", "name": "Lena Vogel", "agency": "Department of Labor and Industries", "traveler_type": "employee"},
+ {"traveler_id": "W213", "name": "Marcus Tran", "agency": "Office of the State Auditor", "traveler_type": "employee"},
+ {"traveler_id": "W214", "name": "Nadia Kowalczyk", "agency": "Department of Labor and Industries", "traveler_type": "employee"}
+]

@@ -1,0 +1,38 @@
+{
+ "scenario": "spokane-escalated-no-approval",
+ "request_text": "Two-day crane-safety audit in Spokane during homecoming weekend; every hotel was over the state rate, the cheapest I found was the Riverfront Lodge at $149. I didn't have time to get an exception approved, but escalated costs are on the exceptions list. Drove my own car both ways, 321 miles each.",
+ "traveler_id": "W214",
+ "departure_date": "2026-10-07",
+ "return_date": "2026-10-09",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": null,
+ "pov_drives": [
+  {
+   "date": "2026-10-07",
+   "from_place": "Olympia",
+   "to_place": "Spokane",
+   "miles": 321
+  },
+  {
+   "date": "2026-10-09",
+   "from_place": "Spokane",
+   "to_place": "Olympia",
+   "miles": 321
+  }
+ ],
+ "lodging": {
+  "location": "Spokane",
+  "hotel": "Riverfront Lodge",
+  "nights": 2,
+  "nightly_rate_cents": 14900,
+  "max_lodging_cents": 12600,
+  "mie_cents": 8600,
+  "exception_approval_date": null,
+  "claimed_reasons": [
+   "escalated_costs"
+  ],
+  "attendance_required": false,
+  "lowest_advertised_rate_cents": null
+ }
+}

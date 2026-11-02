@@ -1,0 +1,34 @@
+{
+ "scenario": "seattle-tokyo-2024-12",
+ "note": "SEA-NRT nonstop, scheduled 600 min, departs 2024-12-15: regime R2024 needs > 840, so tourist despite advance approval and exhausted miles.",
+ "expected": {
+  "reimbursable_cabin": "tourist",
+  "mileage_cents": 0,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "applies the 2025 threshold to a 2024 departure",
+   "change": {
+    "reimbursable_cabin": "business"
+   },
+   "reason": "cabin-correct"
+  },
+  {
+   "why": "leaves the cabin null although a flight is claimed",
+   "change": {
+    "reimbursable_cabin": null
+   },
+   "reason": "cabin-matches-air"
+  },
+  {
+   "why": "invents mileage",
+   "change": {
+    "mileage_cents": 4087
+   },
+   "reason": "mileage-matches-drives"
+  }
+ ]
+}

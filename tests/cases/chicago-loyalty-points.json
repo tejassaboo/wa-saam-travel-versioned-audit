@@ -1,0 +1,28 @@
+{
+ "scenario": "chicago-loyalty-points",
+ "note": "$410 > $232 and approved, but loyalty_program and personal_preference are not listed: capped_at_max 23200.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 0,
+  "lodging_basis": "capped_at_max",
+  "lodging_per_night_cents": 23200,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "treats loyalty points as an exception",
+   "change": {
+    "lodging_basis": "exception_150",
+    "lodging_per_night_cents": 41000
+   },
+   "reason": "lodging-basis-correct"
+  },
+  {
+   "why": "pays the actual rate under the cap basis",
+   "change": {
+    "lodging_per_night_cents": 41000
+   },
+   "reason": "lodging-amount-fits-basis"
+  }
+ ]
+}

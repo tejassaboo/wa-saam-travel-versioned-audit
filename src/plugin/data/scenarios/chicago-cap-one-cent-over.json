@@ -1,0 +1,25 @@
+{
+ "scenario": "chicago-cap-one-cent-over",
+ "request_text": "Western States Audit Forum, which my office required me to attend. My Lakeshore Grand room came to $486.01 a night. I attached the hotel's advertised rates (lowest $410). Exception approved September 30. Since attendance was required, please pay the full rate.",
+ "traveler_id": "W209",
+ "departure_date": "2026-10-18",
+ "return_date": "2026-10-22",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": null,
+ "pov_drives": [],
+ "lodging": {
+  "location": "Chicago",
+  "hotel": "Lakeshore Grand Hotel",
+  "nights": 4,
+  "nightly_rate_cents": 48601,
+  "max_lodging_cents": 23200,
+  "mie_cents": 9200,
+  "exception_approval_date": "2026-09-30",
+  "claimed_reasons": [
+   "conference_venue"
+  ],
+  "attendance_required": true,
+  "lowest_advertised_rate_cents": 41000
+ }
+}

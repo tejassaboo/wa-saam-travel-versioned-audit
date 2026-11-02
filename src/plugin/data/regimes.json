@@ -1,0 +1,6 @@
+[
+ {"regime_id": "R2024", "effective_from": "2024-01-01", "effective_to": "2024-12-31", "business_over_minutes": 840, "pov_rate_tenth_cents": 670, "source": "SAAM before 25A-01"},
+ {"regime_id": "R2025", "effective_from": "2025-01-01", "effective_to": "2025-12-31", "business_over_minutes": 480, "pov_rate_tenth_cents": 700, "source": "25A-01"},
+ {"regime_id": "R2026A", "effective_from": "2026-01-01", "effective_to": "2026-06-30", "business_over_minutes": 480, "pov_rate_tenth_cents": 725, "source": "26A-01"},
+ {"regime_id": "R2026B", "effective_from": "2026-07-01", "effective_to": null, "business_over_minutes": 480, "pov_rate_tenth_cents": 760, "source": "26A-05"}
+]

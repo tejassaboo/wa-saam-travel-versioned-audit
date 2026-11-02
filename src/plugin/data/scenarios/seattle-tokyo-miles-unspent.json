@@ -1,0 +1,30 @@
+{
+ "scenario": "seattle-tokyo-miles-unspent",
+ "request_text": "Public-health exchange in Tokyo. Business class on CP 51, approved in advance on February 12. I still have about 40,000 agency frequent-flyer miles but I am saving them for the summer conference, so please just pay the business fare. Hotels were direct-billed.",
+ "traveler_id": "W211",
+ "departure_date": "2025-03-03",
+ "return_date": "2025-03-07",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "NRT",
+  "segments": [
+   {
+    "flight": "CP 51",
+    "origin": "SEA",
+    "destination": "NRT",
+    "depart_local": "2025-03-03T12:40",
+    "arrive_local": "2025-03-04T15:40",
+    "in_air_minutes": 600
+   }
+  ],
+  "scheduled_one_way_minutes": 600,
+  "cabin_flown": "business",
+  "booking_date": "2025-02-10",
+  "business_approval_date": "2025-02-12",
+  "unused_state_miles": 40000
+ },
+ "pov_drives": [],
+ "lodging": null
+}

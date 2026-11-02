@@ -1,0 +1,9 @@
+[
+ {"code": "SEA", "city": "Seattle-Tacoma", "continental_us": true},
+ {"code": "GEG", "city": "Spokane", "continental_us": true},
+ {"code": "SFO", "city": "San Francisco", "continental_us": true},
+ {"code": "BOS", "city": "Boston", "continental_us": true},
+ {"code": "ORD", "city": "Chicago O'Hare", "continental_us": true},
+ {"code": "NRT", "city": "Tokyo Narita", "continental_us": false},
+ {"code": "HNL", "city": "Honolulu", "continental_us": false}
+]

@@ -1,0 +1,30 @@
+{
+ "scenario": "seattle-tokyo-late-approval",
+ "request_text": "Tokyo apple-export meetings. Flew CP 51 in business. My director was out, so she signed the business-class approval on February 18, after I got back, but she says it is fine. No agency miles left. Hotels were direct-billed.",
+ "traveler_id": "W202",
+ "departure_date": "2025-02-10",
+ "return_date": "2025-02-14",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "NRT",
+  "segments": [
+   {
+    "flight": "CP 51",
+    "origin": "SEA",
+    "destination": "NRT",
+    "depart_local": "2025-02-10T12:40",
+    "arrive_local": "2025-02-11T15:40",
+    "in_air_minutes": 600
+   }
+  ],
+  "scheduled_one_way_minutes": 600,
+  "cabin_flown": "business",
+  "booking_date": "2025-01-20",
+  "business_approval_date": "2025-02-18",
+  "unused_state_miles": 0
+ },
+ "pov_drives": [],
+ "lodging": null
+}

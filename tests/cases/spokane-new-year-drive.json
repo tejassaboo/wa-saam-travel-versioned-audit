@@ -1,0 +1,42 @@
+{
+ "scenario": "spokane-new-year-drive",
+ "note": "321 mi on 2025-12-31 at 700 (R2025) = 224700 plus 321 mi on 2026-01-01 at 725 (R2026A) = 232725; 457425 tenths rounds half up to 45743. Each drive takes its own date's rate, whatever the note asks.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 45743,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "applies the trip's departure-date rate to both drives",
+   "change": {
+    "mileage_cents": 44940
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "applies the new rate to both drives",
+   "change": {
+    "mileage_cents": 46545
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "truncates the half cent",
+   "change": {
+    "mileage_cents": 45742
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "invents a lodging claim",
+   "change": {
+    "lodging_basis": "within_max",
+    "lodging_per_night_cents": 11300
+   },
+   "reason": "lodging-matches-claim"
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "scenario": "yakima-day-trip-jun30",
+ "note": "311 mi on 2026-06-30 at 725 tenth-cents (R2026A) = 225475 tenths, rounds half up to 22548; 660 min is at least 660: meals true.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 22548,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": true
+ },
+ "broken": [
+  {
+   "why": "truncates the half cent",
+   "change": {
+    "mileage_cents": 22547
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "uses the July rate a day early",
+   "change": {
+    "mileage_cents": 23636
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "treats exactly eleven hours as short",
+   "change": {
+    "meals_eligible_same_day": false
+   },
+   "reason": "meals-eligibility-correct"
+  },
+  {
+   "why": "leaves meals null on a same-day trip",
+   "change": {
+    "meals_eligible_same_day": null
+   },
+   "reason": "meals-matches-trip"
+  }
+ ]
+}

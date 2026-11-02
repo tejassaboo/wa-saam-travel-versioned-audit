@@ -1,0 +1,49 @@
+{
+ "scenario": "chicago-conference-venue",
+ "note": "Venue hotel $410 > $232 maximum, approved 2026-09-28 before the 2026-10-18 departure, conference_venue listed: exception_150, min(41000, (23200 + 9200) x 3 // 2 = 48600) = 41000. SEA-ORD is domestic: tourist. Drives 122 mi x 760 = 9272.",
+ "expected": {
+  "reimbursable_cabin": "tourist",
+  "mileage_cents": 9272,
+  "lodging_basis": "exception_150",
+  "lodging_per_night_cents": 41000,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "reimburses the domestic business seat",
+   "change": {
+    "reimbursable_cabin": "business"
+   },
+   "reason": "cabin-correct"
+  },
+  {
+   "why": "caps at the maximum despite an approved listed exception",
+   "change": {
+    "lodging_basis": "capped_at_max",
+    "lodging_per_night_cents": 23200
+   },
+   "reason": "lodging-basis-correct"
+  },
+  {
+   "why": "pays the 150% cap instead of the lower actual rate",
+   "change": {
+    "lodging_per_night_cents": 48600
+   },
+   "reason": "lodging-amount-fits-basis"
+  },
+  {
+   "why": "takes 150% of the lodging maximum alone (34800)",
+   "change": {
+    "lodging_per_night_cents": 34800
+   },
+   "reason": "lodging-amount-fits-basis"
+  },
+  {
+   "why": "counts only one way",
+   "change": {
+    "mileage_cents": 4636
+   },
+   "reason": "mileage-correct"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "scenario": "seattle-tokyo-2025-01",
+ "request_text": "Same Cascadia Pacific 51 nonstop as my December mission, about ten hours, business class again. I bought the ticket on December 10 and the director approved business on December 12, both last year, so I assume last year's rules apply. Agency miles are all used up. Hotels were direct-billed.",
+ "traveler_id": "W201",
+ "departure_date": "2025-01-15",
+ "return_date": "2025-01-20",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "NRT",
+  "segments": [
+   {
+    "flight": "CP 51",
+    "origin": "SEA",
+    "destination": "NRT",
+    "depart_local": "2025-01-15T12:40",
+    "arrive_local": "2025-01-16T15:40",
+    "in_air_minutes": 600
+   }
+  ],
+  "scheduled_one_way_minutes": 600,
+  "cabin_flown": "business",
+  "booking_date": "2024-12-10",
+  "business_approval_date": "2024-12-12",
+  "unused_state_miles": 0
+ },
+ "pov_drives": [],
+ "lodging": null
+}

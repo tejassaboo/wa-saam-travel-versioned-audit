@@ -1,0 +1,19 @@
+{
+ "scenario": "yakima-day-trip-jun30",
+ "request_text": "Day trip to inspect the Yakima River riparian plots. Drove my own truck Olympia to Yakima and back, 311 miles on the odometer. Left at 6:00 and was home at 17:00, eleven hours exactly; I bought lunch on the road.",
+ "traveler_id": "W204",
+ "departure_date": "2026-06-30",
+ "return_date": "2026-06-30",
+ "overnight": false,
+ "travel_status_minutes": 660,
+ "air": null,
+ "pov_drives": [
+  {
+   "date": "2026-06-30",
+   "from_place": "Olympia",
+   "to_place": "Yakima and back",
+   "miles": 311
+  }
+ ],
+ "lodging": null
+}

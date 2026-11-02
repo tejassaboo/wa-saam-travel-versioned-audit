@@ -1,0 +1,30 @@
+{
+ "scenario": "seattle-tokyo-2024-12",
+ "request_text": "Voucher for the Japan trade mission (Osaka and Tokyo seafood buyers). Flew Cascadia Pacific 51 nonstop, about ten hours, in business; the director signed the business-class approval on November 20 and I had already used up all of the agency's frequent-flyer miles. Hotels were direct-billed by the mission organizer. Please reimburse the business fare.",
+ "traveler_id": "W201",
+ "departure_date": "2024-12-15",
+ "return_date": "2024-12-20",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "NRT",
+  "segments": [
+   {
+    "flight": "CP 51",
+    "origin": "SEA",
+    "destination": "NRT",
+    "depart_local": "2024-12-15T12:40",
+    "arrive_local": "2024-12-16T15:40",
+    "in_air_minutes": 600
+   }
+  ],
+  "scheduled_one_way_minutes": 600,
+  "cabin_flown": "business",
+  "booking_date": "2024-11-18",
+  "business_approval_date": "2024-11-20",
+  "unused_state_miles": 0
+ },
+ "pov_drives": [],
+ "lodging": null
+}

@@ -1,0 +1,26 @@
+{
+ "scenario": "chicago-loyalty-points",
+ "request_text": "Also at the Western States Audit Forum. I booked the Lakeshore Grand at $410 because I'm a platinum member there and like their rooms. The deputy auditor approved a lodging exception on September 28. Airfare went on the agency account.",
+ "traveler_id": "W207",
+ "departure_date": "2026-10-18",
+ "return_date": "2026-10-22",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": null,
+ "pov_drives": [],
+ "lodging": {
+  "location": "Chicago",
+  "hotel": "Lakeshore Grand Hotel",
+  "nights": 4,
+  "nightly_rate_cents": 41000,
+  "max_lodging_cents": 23200,
+  "mie_cents": 9200,
+  "exception_approval_date": "2026-09-28",
+  "claimed_reasons": [
+   "loyalty_program",
+   "personal_preference"
+  ],
+  "attendance_required": false,
+  "lowest_advertised_rate_cents": null
+ }
+}

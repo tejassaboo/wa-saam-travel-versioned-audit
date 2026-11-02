@@ -1,0 +1,36 @@
+{
+ "scenario": "spokane-escalated-no-approval",
+ "note": "Spokane $149 > $126 maximum; escalated_costs is listed, but no exception was approved: capped_at_max 12600. Drives 642 mi at 760 (R2026B) = 48792.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 48792,
+  "lodging_basis": "capped_at_max",
+  "lodging_per_night_cents": 12600,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "grants a listed exception that was never approved",
+   "change": {
+    "lodging_basis": "exception_150",
+    "lodging_per_night_cents": 14900
+   },
+   "reason": "lodging-basis-correct"
+  },
+  {
+   "why": "calls an over-maximum room within the maximum",
+   "change": {
+    "lodging_basis": "within_max",
+    "lodging_per_night_cents": 14900
+   },
+   "reason": "lodging-amount-fits-basis"
+  },
+  {
+   "why": "uses the 2026A mileage rate in October 2026",
+   "change": {
+    "mileage_cents": 46545
+   },
+   "reason": "mileage-correct"
+  }
+ ]
+}

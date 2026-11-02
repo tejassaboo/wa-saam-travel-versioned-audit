@@ -1,0 +1,34 @@
+{
+ "scenario": "seattle-tokyo-2025-01",
+ "note": "The same 600-min flight departing 2025-01-15: regime R2025 needs > 480, approval 2024-12-12 is before departure, miles exhausted: business. The 2024 booking and approval dates never pick the regime.",
+ "expected": {
+  "reimbursable_cabin": "business",
+  "mileage_cents": 0,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "picks the regime by the 2024 booking date",
+   "change": {
+    "reimbursable_cabin": "tourist"
+   },
+   "reason": "cabin-correct"
+  },
+  {
+   "why": "answers a same-day meal question on an overnight trip",
+   "change": {
+    "meals_eligible_same_day": false
+   },
+   "reason": "meals-matches-trip"
+  },
+  {
+   "why": "names a lodging basis with no lodging claimed",
+   "change": {
+    "lodging_basis": "within_max"
+   },
+   "reason": "lodging-matches-claim"
+  }
+ ]
+}

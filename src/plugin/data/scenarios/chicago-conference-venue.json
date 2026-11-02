@@ -1,0 +1,56 @@
+{
+ "scenario": "chicago-conference-venue",
+ "request_text": "Western States Audit Forum in Chicago. Stayed at the Lakeshore Grand, the conference hotel, at $410 a night; honestly it's my favorite hotel anyway. The deputy auditor approved the lodging exception on September 28. I paid for a business seat to O'Hare, please cover it. Drove to Sea-Tac and back, 61 miles each way.",
+ "traveler_id": "W206",
+ "departure_date": "2026-10-18",
+ "return_date": "2026-10-22",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "ORD",
+  "segments": [
+   {
+    "flight": "SA 128",
+    "origin": "SEA",
+    "destination": "ORD",
+    "depart_local": "2026-10-18T09:00",
+    "arrive_local": "2026-10-18T15:05",
+    "in_air_minutes": 245
+   }
+  ],
+  "scheduled_one_way_minutes": 245,
+  "cabin_flown": "business",
+  "booking_date": "2026-09-10",
+  "business_approval_date": null,
+  "unused_state_miles": 0
+ },
+ "pov_drives": [
+  {
+   "date": "2026-10-18",
+   "from_place": "Olympia",
+   "to_place": "Sea-Tac Airport",
+   "miles": 61
+  },
+  {
+   "date": "2026-10-22",
+   "from_place": "Sea-Tac Airport",
+   "to_place": "Olympia",
+   "miles": 61
+  }
+ ],
+ "lodging": {
+  "location": "Chicago",
+  "hotel": "Lakeshore Grand Hotel",
+  "nights": 4,
+  "nightly_rate_cents": 41000,
+  "max_lodging_cents": 23200,
+  "mie_cents": 9200,
+  "exception_approval_date": "2026-09-28",
+  "claimed_reasons": [
+   "conference_venue"
+  ],
+  "attendance_required": false,
+  "lowest_advertised_rate_cents": null
+ }
+}

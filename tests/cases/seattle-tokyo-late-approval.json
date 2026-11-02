@@ -1,0 +1,27 @@
+{
+ "scenario": "seattle-tokyo-late-approval",
+ "note": "600 min > 480 under R2025, but business approval 2025-02-18 came after the 2025-02-10 departure: tourist.",
+ "expected": {
+  "reimbursable_cabin": "tourist",
+  "mileage_cents": 0,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": null
+ },
+ "broken": [
+  {
+   "why": "accepts an after-the-fact approval",
+   "change": {
+    "reimbursable_cabin": "business"
+   },
+   "reason": "cabin-correct"
+  },
+  {
+   "why": "leaves the cabin null",
+   "change": {
+    "reimbursable_cabin": null
+   },
+   "reason": "cabin-matches-air"
+  }
+ ]
+}
