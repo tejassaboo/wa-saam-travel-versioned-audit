@@ -120,7 +120,7 @@ def exception_cap_cents(lodging):
 
 
 def above_150_holds(lodging, departure_date):
-    """Every condition of SAAM 10.30.20.b as the toy handbook states it (C7, step 3)."""
+    """Every condition of SAAM 10.30.20.b as the toy handbook states it (C7, step 2)."""
     approval, lowest = lodging["exception_approval_date"], lodging["lowest_advertised_rate_cents"]
     cap = exception_cap_cents(lodging)
     return (

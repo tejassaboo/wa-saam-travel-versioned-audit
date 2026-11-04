@@ -35,7 +35,7 @@ threshold, each drive's own date for its mileage); booking and approval dates ne
 | R2026A | 2026-01-01 to 2026-06-30 (26A-01) | 480 | $0.725 |
 | R2026B | from 2026-07-01 (26A-05) | 480 | $0.76 |
 
-Each scenario sets one trap:
+Each scenario sets a trap (`chicago-forum-lakeshore` sets three):
 
 | Scenario | Trap | Correct audit |
 |---|---|---|
@@ -98,7 +98,8 @@ is not > 840 (regime R2024, in effect on departure 2024-12-15)"), and later stag
 3. **Internal consistency:** `cabin-within-flown`, `lodging-amount-fits-basis` (the amount is what the
    stated basis pays for this room).
 4. **Decision against the oracle:** `cabin-correct`, `mileage-correct`, `lodging-basis-correct`,
-   `lodging-amount-correct`.
+   `lodging-amount-correct` (a backstop: once the amount fits the stated basis, it can fail only together
+   with `lodging-basis-correct`, never on its own).
 5. **Flags:** `meals-eligibility-correct`.
 
 The score is 1.0 when the audit is valid and 0.0 otherwise; `details` holds every constraint and the
@@ -109,7 +110,7 @@ pure stdlib and never raises: an unexpected value, or an unknown task or tool id
 
 ## Validation
 
-`tests/` covers the brief's whole test matrix:
+`tests/` covers the whole required test matrix:
 
 - correct, incorrect, missing and malformed outputs, with malformed cases as `build_output` rejections;
 - the signature test: the same 600-min flight is tourist departing 2024-12-15 and business departing
@@ -120,15 +121,19 @@ pure stdlib and never raises: an unexpected value, or an unknown task or tool id
   listed exception, and as a bundled twin pair (`chicago-forum-king` / `chicago-forum-tower`) that changes
   the basis; each above-150% condition removed; 659/660 and 299/300 meal minutes; half-cent
   rounding (121 miles at $0.725);
-- uniqueness: changing any one field of each expected audit to any other value fails;
+- uniqueness: changing any one field of each expected audit to any other value fails. Three vouchers share
+  the whole audit `tourist, 0, null, 0, null` (`seattle-tokyo-seafood`, `-apples` and `-health`, each a
+  different reason to refuse business), so a lazy agent that always answers tourist is right on those
+  three and wrong on the other thirteen;
 - oracle == the hand-written `tests/cases/<scenario>.json` for every scenario;
 - the `rules.py` and `world.py` identity checks; handbook == `instructions`; the handbook's regime table
   == the fixture;
 - fixture integrity, recomputing flight minutes with `zoneinfo`; tool-output size under about 1k tokens;
 - structured input and output (`tests/test_contract.py`), and `request_text` is flavour only (the oracle
   and the scripted agent give the same answer with it blanked out);
-- the brief's §11 cross-policy row for WA SAAM: 360 + 90 + 420 = 870 > 840 and > 480 gives business in
-  either regime with advance approval and exhausted miles, else tourist;
+- a cross-policy sanity row shared with the sibling travel-policy plugins: a 360 + 90 + 420 = 870 min
+  one-way flight is > 840 and > 480, so business in either regime with advance approval and exhausted
+  miles, else tourist;
 - a real MCP server round trip, and a scripted, no-LLM run per scenario written from the handbook alone.
 
 ## Layout

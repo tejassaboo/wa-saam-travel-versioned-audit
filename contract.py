@@ -39,7 +39,7 @@ class WaScenario(Enum):
 
 
 class TravelerType(Enum):
-    """Who travels: the same-day meal rule's hour threshold depends on it (handbook rule 9)."""
+    """Who travels: the same-day meal rule's hour threshold depends on it (handbook rule 8, C9)."""
 
     EMPLOYEE = "employee"
     VOLUNTEER = "volunteer"
@@ -106,7 +106,7 @@ class Airport(Output):
 
 @dataclass
 class FlightSegment(Output):
-    flight: Annotated[str, "Flight number as sold, e.g. CS 117 (descriptive only)"]
+    flight: Annotated[str, "Flight number as sold, e.g. RA 210 (descriptive only)"]
     origin: Annotated[str, "Three-letter IATA code of the departure airport"]
     destination: Annotated[str, "Three-letter IATA code of the arrival airport"]
     depart_local: Annotated[str, "Scheduled departure, YYYY-MM-DDTHH:MM, origin local time"]

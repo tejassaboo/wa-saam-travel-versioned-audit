@@ -1,6 +1,6 @@
 """Scenario ids are visible to the agent (the task input is the id), so an id must not leak the answer:
 no graded output value, no boundary number or date, no informal rule term, and no category that by itself
-fixes the answer. A place plus a neutral persona or event noun is flavour only. Modelled on T1's test."""
+fixes the answer. A place plus a neutral persona or event noun is flavour only."""
 
 import re
 

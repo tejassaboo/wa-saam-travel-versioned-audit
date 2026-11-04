@@ -9,7 +9,7 @@ from helpers import SCENARIOS, TASK, arguments, case, reference, verdict
 from slimconfig import build_output
 
 import verifier
-from contract import RulesInput, WaVoucherOutput
+from contract import LodgingBasis, RulesInput, WaVoucherOutput
 from plugin.fixtures import scenario as load_scenario
 from plugin.fixtures import world
 from plugin.rules import oracle
@@ -56,8 +56,9 @@ def test_each_broken_answer_fails_with_its_reason_code(scenario: str, index: int
 def test_every_reason_code_after_the_answer_key_is_exercised_by_some_case() -> None:
     reasons = {broken["reason"] for scenario in SCENARIOS for broken in case(scenario)["broken"]}
     assert reasons == set(ORDER[1:]) - {"cabin-within-flown", "lodging-amount-correct"}
-    # cabin-within-flown needs a tourist ticket with a business claim, and lodging-amount-correct can only fail
-    # once lodging-amount-fits-basis holds with the right basis, which pins the amount: both are tested below.
+    # cabin-within-flown needs a tourist ticket with a business claim (no bundled voucher has one), and
+    # lodging-amount-correct can never be the first failure: once lodging-amount-fits-basis holds, the amount
+    # is pinned by the basis, so it fails only together with lodging-basis-correct. Both are tested below.
 
 
 def test_the_signature_flight_gets_different_verdicts_across_2025_01_01() -> None:
@@ -148,6 +149,33 @@ def test_lodging_amount_correct_is_a_backstop_after_the_basis_checks() -> None:
     for scenario in SCENARIOS:
         entries = {entry["id"]: entry for entry in verdict(scenario, case(scenario)["expected"])["details"]["constraints"]}
         assert entries["lodging-amount-correct"]["ok"] is True
+
+
+def test_lodging_amount_correct_fails_only_together_with_the_basis() -> None:
+    """The reason code is reachable, as a second failure: the king's answer on the tower's voucher fits its
+    stated basis (exception_150 pays the cap, 48600), so stage 2 holds and stage 3 fails on both the basis
+    and the amount. Over every basis and the amounts a submission could plausibly name, it never fails while
+    lodging-basis-correct holds, and is never the headline."""
+    result = verdict("chicago-forum-tower", case("chicago-forum-king")["expected"])
+    states = {entry["id"]: entry for entry in result["details"]["constraints"]}
+    assert result["message"].startswith("lodging-basis-correct:") and result["message"].endswith("(+1 more)")
+    assert states["lodging-basis-correct"]["ok"] is False and states["lodging-amount-correct"]["ok"] is False
+    assert states["lodging-amount-correct"]["message"].startswith("48600 cents a night instead of 48601 under above_150_conference")
+    for scenario in SCENARIOS:
+        lodging = load_scenario(scenario)["lodging"]
+        if lodging is None:
+            continue
+        gold = case(scenario)["expected"]
+        cap = (lodging["max_lodging_cents"] + lodging["mie_cents"]) * 3 // 2
+        amounts = {0, lodging["nightly_rate_cents"], lodging["max_lodging_cents"], cap, lodging["lowest_advertised_rate_cents"] or 0}
+        amounts |= {amount + delta for amount in list(amounts) for delta in (-1, 1)}
+        for basis in (member.value for member in LodgingBasis):
+            for amount in amounts:
+                result = verdict(scenario, {**gold, "lodging_basis": basis, "lodging_per_night_cents": amount})
+                states = {entry["id"]: entry["ok"] for entry in result["details"]["constraints"]}
+                if states["lodging-amount-correct"] is False:
+                    assert states["lodging-basis-correct"] is False, (scenario, basis, amount)
+                    assert not result["message"].startswith("lodging-amount-correct"), (scenario, basis, amount)
 
 
 def test_a_wrong_answer_key_is_caught_before_the_submission() -> None:

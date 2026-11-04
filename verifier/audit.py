@@ -13,6 +13,10 @@ submitted one against it in stages, each a list of constraints with stable ids (
 A stage is checked only when every earlier stage holds. The message names the first failing constraint
 and how many more fail. Shape problems (types, Enum values, missing or extra fields) never get here:
 NanoAgent's build_output refuses them first. The score is 1.0 when every constraint holds, else 0.0.
+
+lodging-amount-correct is a backstop: once lodging-amount-fits-basis holds, the stated basis pins the
+amount, so it can fail only together with lodging-basis-correct (a test checks this) and never decides a
+verdict on its own. It stays so that a basis rule with a free amount could not slip through unchecked.
 """
 
 from .checks import UNEXPECTED, fixtures, plain, result

@@ -21,7 +21,7 @@ TIMEZONES = {
     "NRT": "Asia/Tokyo",
     "HNL": "Pacific/Honolulu",
 }
-REGIMES = [  # the verified history (TIER2_DESIGNS.md T9): threshold minutes, POV rate in tenth-cents
+REGIMES = [  # the directive history the handbook pins: threshold minutes, POV rate in tenth-cents, inclusive ends
     ("R2024", "2024-01-01", "2024-12-31", 840, 670),
     ("R2025", "2025-01-01", "2025-12-31", 480, 700),
     ("R2026A", "2026-01-01", "2026-06-30", 480, 725),
