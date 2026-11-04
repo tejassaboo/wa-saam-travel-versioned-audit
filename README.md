@@ -1,5 +1,7 @@
 # WA SAAM Travel Versioned Audit
 
+**No affiliation with Washington State or its Office of Financial Management (OFM).**
+
 A `nanoagent.plugin/v0001` plugin. An agent audits one Washington State travel voucher under a toy
 handbook paraphrased from SAAM Chapter 10 (Travel) and OFM Directives 25A-01, 26A-01 and 26A-05. The
 rules changed over time, so the agent must use the rules in force on the right date. It reads the
