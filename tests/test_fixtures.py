@@ -68,6 +68,7 @@ def test_the_handbook_pins_its_sources_and_states_the_toy_rules() -> None:
         'The real text says only "in advance"; the calendar-day reading is our toy rule',
         "The most-economical-room duty of rule 7 is modelled only in step 2",
         "The real text states no rounding rule; this is our toy rule",
+        "**C10 Total.** total_reimbursable_cents = nights",
         "## Rules not in scope",
         'whether a routing is "direct" between the authorized points',
         "first-class or seat-upgrade rules: Chapter 10 has none",

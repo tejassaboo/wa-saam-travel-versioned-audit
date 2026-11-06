@@ -1,13 +1,13 @@
 {
  "scenario": "chicago-forum-outreach",
- "note": "$300 > $232; distant_savings_consumed is listed, but the exception was approved on 2026-10-18, the departure day, and approved in advance means an earlier calendar day (C7): not approved, capped_at_max 23200. Total 4 x 23200 = 92800.",
+ "note": "$300 > $232; distant_savings_consumed is listed, but the exception was approved on 2026-10-18, the departure day, and approved in advance means an earlier calendar day (C7): not approved, capped_at_max 23200. Total 3 x 23200 = 69600.",
  "expected": {
   "reimbursable_cabin": null,
   "mileage_cents": 0,
   "lodging_basis": "capped_at_max",
   "lodging_per_night_cents": 23200,
   "meals_eligible_same_day": null,
-  "total_reimbursable_cents": 92800
+  "total_reimbursable_cents": 69600
  },
  "broken": [
   {
@@ -15,7 +15,7 @@
    "change": {
     "lodging_basis": "exception_150",
     "lodging_per_night_cents": 30000,
-    "total_reimbursable_cents": 120000
+    "total_reimbursable_cents": 90000
    },
    "reason": "lodging-basis-correct"
   },

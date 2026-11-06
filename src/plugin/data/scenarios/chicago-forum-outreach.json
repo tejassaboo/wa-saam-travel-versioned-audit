@@ -1,9 +1,9 @@
 {
  "scenario": "chicago-forum-outreach",
- "request_text": "Western States Audit Forum. The forum hotel was full, so I booked the Wacker Court at $300; a cheaper room out by O'Hare would have cost more in train fares and lost hours than it saved. The deputy signed the lodging exception the morning I left, October 18, before my train. Please pay the $300.",
+ "request_text": "Western States Audit Forum. The forum hotel was full, so I booked three nights at the Wacker Court at $300; a cheaper room out by O'Hare would have cost more in train fares and lost hours than it saved. The deputy signed the lodging exception the morning I left, October 18, before my train. Please pay the $300.",
  "traveler_id": "W222",
  "departure_date": "2026-10-18",
- "return_date": "2026-10-22",
+ "return_date": "2026-10-21",
  "overnight": true,
  "travel_status_minutes": null,
  "air": null,
@@ -11,7 +11,7 @@
  "lodging": {
   "location": "Chicago",
   "hotel": "Wacker Court Hotel",
-  "nights": 4,
+  "nights": 3,
   "nightly_rate_cents": 30000,
   "max_lodging_cents": 23200,
   "mie_cents": 9200,

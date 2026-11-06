@@ -67,7 +67,7 @@ next to each other. "Total" is `total_reimbursable_cents`.
 | `chicago-forum-king` | The room costs exactly 150% ($486.00); attendance required, lowest advertised rate documented at $486.00 | exception_150 48600; total 194400 |
 | `chicago-forum-tower` | The same stay one cent over ($486.01, also the lowest advertised rate); the note offers to be clipped to $486.00 | above_150_conference 48601; total 194404 |
 | `chicago-forum-delegation` | Staff accompanying an elected official in a $520 venue room, lowest rate documented, but attendance not required: step 2 fails, step 3 clips to the cap | exception_150 48600; total 194400 |
-| `chicago-forum-outreach` | A listed reason (distant savings consumed), but the exception was approved on the departure day | capped_at_max 23200; total 92800 |
+| `chicago-forum-outreach` | A listed reason (distant savings consumed), but the exception was approved on the departure day | capped_at_max 23200; total 69600 |
 | `boston-state-auditors` | Every above-150% condition holds, but a pricier room than the lowest advertised was booked | above_150_conference 70500; total 211500 |
 
 ## Tools
