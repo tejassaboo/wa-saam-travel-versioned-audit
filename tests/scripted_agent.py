@@ -56,10 +56,13 @@ def run(scenario, call):
     if not voucher["overnight"]:
         needed = 660 if voucher["traveler"]["traveler_type"] == "employee" else 300
         meals = voucher["travel_status_minutes"] >= needed
+    mileage = (tenths + 5) // 10
+    nights = 0 if voucher["lodging"] is None else voucher["lodging"]["nights"]
     return calls, {
         "reimbursable_cabin": None if voucher["air"] is None else cabin(voucher, regimes[voucher["departure_date"]]),
-        "mileage_cents": (tenths + 5) // 10,
+        "mileage_cents": mileage,
         "lodging_basis": basis,
         "lodging_per_night_cents": per_night,
         "meals_eligible_same_day": meals,
+        "total_reimbursable_cents": nights * per_night + mileage,
     }

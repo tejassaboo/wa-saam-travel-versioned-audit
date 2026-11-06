@@ -6,7 +6,8 @@
   "mileage_cents": 0,
   "lodging_basis": null,
   "lodging_per_night_cents": 0,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 0
  },
  "broken": [
   {

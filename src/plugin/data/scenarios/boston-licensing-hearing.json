@@ -1,0 +1,43 @@
+{
+ "scenario": "boston-licensing-hearing",
+ "request_text": "Interstate licensing-compact hearing in Boston. Flew SA 300 in coach. Two nights in a suite at the Beacon Suites for $460: the suite doubled as the room where we prepped testimony, and it was cheaper than a standard room plus a meeting room. The exception was approved October 12. I still have about 5,000 agency miles.",
+ "traveler_id": "W221",
+ "departure_date": "2026-10-26",
+ "return_date": "2026-10-28",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "BOS",
+  "segments": [
+   {
+    "flight": "SA 300",
+    "origin": "SEA",
+    "destination": "BOS",
+    "depart_local": "2026-10-26T08:15",
+    "arrive_local": "2026-10-26T16:45",
+    "in_air_minutes": 330
+   }
+  ],
+  "scheduled_one_way_minutes": 330,
+  "cabin_flown": "tourist",
+  "booking_date": "2026-09-30",
+  "business_approval_date": null,
+  "unused_state_miles": 5000
+ },
+ "pov_drives": [],
+ "lodging": {
+  "location": "Boston",
+  "hotel": "Beacon Suites",
+  "nights": 2,
+  "nightly_rate_cents": 46000,
+  "max_lodging_cents": 36500,
+  "mie_cents": 9200,
+  "exception_approval_date": "2026-10-12",
+  "claimed_reasons": [
+   "suite_cheaper"
+  ],
+  "attendance_required": false,
+  "lowest_advertised_rate_cents": null
+ }
+}

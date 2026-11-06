@@ -1,0 +1,38 @@
+{
+ "scenario": "spokane-bridge-review",
+ "note": "Spokane $180 > $126 maximum; cap (12600 + 8600) x 3 // 2 = 31800; approved 2026-10-30 before 2026-11-09 and ada_or_safety is listed: exception_150, min(18000, 31800) = 18000. Drives 2 x 290 mi x 760 (R2026B) = 440800 tenths = 44080 cents. Total 2 x 18000 + 44080 = 80080.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 44080,
+  "lodging_basis": "exception_150",
+  "lodging_per_night_cents": 18000,
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 80080
+ },
+ "broken": [
+  {
+   "why": "caps at the maximum despite the approved disability exception",
+   "change": {
+    "lodging_basis": "capped_at_max",
+    "lodging_per_night_cents": 12600,
+    "total_reimbursable_cents": 69280
+   },
+   "reason": "lodging-basis-correct"
+  },
+  {
+   "why": "uses the first-half-of-2026 rate in November",
+   "change": {
+    "mileage_cents": 42050,
+    "total_reimbursable_cents": 78050
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "totals one night instead of two",
+   "change": {
+    "total_reimbursable_cents": 62080
+   },
+   "reason": "total-fits-parts"
+  }
+ ]
+}

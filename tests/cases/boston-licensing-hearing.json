@@ -1,0 +1,38 @@
+{
+ "scenario": "boston-licensing-hearing",
+ "note": "SEA-BOS is domestic and tourist was flown: tourist. Boston suite $460 > $365 maximum; cap (36500 + 9200) x 3 // 2 = 68550; approved 2026-10-12 before 2026-10-26 and suite_cheaper is listed: exception_150, min(46000, 68550) = 46000. Total 2 x 46000 = 92000.",
+ "expected": {
+  "reimbursable_cabin": "tourist",
+  "mileage_cents": 0,
+  "lodging_basis": "exception_150",
+  "lodging_per_night_cents": 46000,
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 92000
+ },
+ "broken": [
+  {
+   "why": "reimburses business on a coach ticket",
+   "change": {
+    "reimbursable_cabin": "business"
+   },
+   "reason": "cabin-within-flown"
+  },
+  {
+   "why": "caps a suite the exception covers",
+   "change": {
+    "lodging_basis": "capped_at_max",
+    "lodging_per_night_cents": 36500,
+    "total_reimbursable_cents": 73000
+   },
+   "reason": "lodging-basis-correct"
+  },
+  {
+   "why": "pays the 150% cap instead of the lower actual rate",
+   "change": {
+    "lodging_per_night_cents": 68550,
+    "total_reimbursable_cents": 137100
+   },
+   "reason": "lodging-amount-fits-basis"
+  }
+ ]
+}

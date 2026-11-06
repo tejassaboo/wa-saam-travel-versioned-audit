@@ -1,0 +1,51 @@
+{
+ "scenario": "seattle-honolulu-aquaculture",
+ "request_text": "Aquaculture permitting workshop in Honolulu the week after the council session. Same RA 210 and RA 1187 routing in business; this week's schedule lands a minute later. Business approved January 20, agency miles exhausted. Drove my own car Olympia to Sea-Tac and back, 61 miles each way. Hawaii lodging is on a separate voucher.",
+ "traveler_id": "W217",
+ "departure_date": "2026-02-16",
+ "return_date": "2026-02-20",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "HNL",
+  "segments": [
+   {
+    "flight": "RA 210",
+    "origin": "SEA",
+    "destination": "SFO",
+    "depart_local": "2026-02-16T07:00",
+    "arrive_local": "2026-02-16T08:55",
+    "in_air_minutes": 115
+   },
+   {
+    "flight": "RA 1187",
+    "origin": "SFO",
+    "destination": "HNL",
+    "depart_local": "2026-02-16T09:30",
+    "arrive_local": "2026-02-16T13:01",
+    "in_air_minutes": 331
+   }
+  ],
+  "scheduled_one_way_minutes": 481,
+  "cabin_flown": "business",
+  "booking_date": "2026-01-12",
+  "business_approval_date": "2026-01-20",
+  "unused_state_miles": 0
+ },
+ "pov_drives": [
+  {
+   "date": "2026-02-16",
+   "from_place": "Olympia",
+   "to_place": "Sea-Tac Airport",
+   "miles": 61
+  },
+  {
+   "date": "2026-02-20",
+   "from_place": "Sea-Tac Airport",
+   "to_place": "Olympia",
+   "miles": 61
+  }
+ ],
+ "lodging": null
+}

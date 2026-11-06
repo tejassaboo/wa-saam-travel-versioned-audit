@@ -6,7 +6,8 @@
   "mileage_cents": 8540,
   "lodging_basis": null,
   "lodging_per_night_cents": 0,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 8540
  },
  "broken": [
   {
@@ -19,21 +20,24 @@
   {
    "why": "uses the 2024 mileage rate",
    "change": {
-    "mileage_cents": 8174
+    "mileage_cents": 8174,
+    "total_reimbursable_cents": 8174
    },
    "reason": "mileage-correct"
   },
   {
    "why": "drops the claimed drives",
    "change": {
-    "mileage_cents": 0
+    "mileage_cents": 0,
+    "total_reimbursable_cents": 0
    },
    "reason": "mileage-matches-drives"
   },
   {
    "why": "counts only one way",
    "change": {
-    "mileage_cents": 4270
+    "mileage_cents": 4270,
+    "total_reimbursable_cents": 4270
    },
    "reason": "mileage-correct"
   }

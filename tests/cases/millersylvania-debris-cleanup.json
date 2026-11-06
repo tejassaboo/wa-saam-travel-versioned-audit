@@ -6,13 +6,15 @@
   "mileage_cents": 5829,
   "lodging_basis": null,
   "lodging_per_night_cents": 0,
-  "meals_eligible_same_day": true
+  "meals_eligible_same_day": true,
+  "total_reimbursable_cents": 5829
  },
  "broken": [
   {
    "why": "applies the next day's rate as asked",
    "change": {
-    "mileage_cents": 6090
+    "mileage_cents": 6090,
+    "total_reimbursable_cents": 6090
    },
    "reason": "mileage-correct"
   },
@@ -26,7 +28,8 @@
   {
    "why": "reports a negative amount",
    "change": {
-    "mileage_cents": -5829
+    "mileage_cents": -5829,
+    "total_reimbursable_cents": -5829
    },
    "reason": "mileage-matches-drives"
   }

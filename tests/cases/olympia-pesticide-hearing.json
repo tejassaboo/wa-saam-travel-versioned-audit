@@ -1,0 +1,36 @@
+{
+ "scenario": "olympia-pesticide-hearing",
+ "note": "Board member, same-day: 299 min is not at least 300, so meals false. 268 mi on 2025-05-14 x 700 (R2025) = 187600 tenths = 18760 cents; total 18760.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 18760,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": false,
+  "total_reimbursable_cents": 18760
+ },
+ "broken": [
+  {
+   "why": "rounds 299 minutes up to five hours",
+   "change": {
+    "meals_eligible_same_day": true
+   },
+   "reason": "meals-eligibility-correct"
+  },
+  {
+   "why": "uses the 2024 rate in May 2025",
+   "change": {
+    "mileage_cents": 17956,
+    "total_reimbursable_cents": 17956
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "leaves meals null on a same-day trip",
+   "change": {
+    "meals_eligible_same_day": null
+   },
+   "reason": "meals-matches-trip"
+  }
+ ]
+}

@@ -6,7 +6,8 @@
   "mileage_cents": 0,
   "lodging_basis": "within_max",
   "lodging_per_night_cents": 32900,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 98700
  },
  "broken": [
   {
@@ -20,14 +21,16 @@
    "why": "caps a room that is already under the maximum",
    "change": {
     "lodging_basis": "capped_at_max",
-    "lodging_per_night_cents": 36500
+    "lodging_per_night_cents": 36500,
+    "total_reimbursable_cents": 109500
    },
    "reason": "lodging-amount-fits-basis"
   },
   {
    "why": "pays the maximum instead of the actual rate",
    "change": {
-    "lodging_per_night_cents": 36500
+    "lodging_per_night_cents": 36500,
+    "total_reimbursable_cents": 109500
    },
    "reason": "lodging-amount-fits-basis"
   },

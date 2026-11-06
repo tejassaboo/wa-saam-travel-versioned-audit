@@ -51,7 +51,8 @@ def test_the_answer_is_unique(scenario: str) -> None:
     expected = case(scenario)["expected"]
     for field, value in expected.items():
         for other in alternatives(field, value):
-            assert verdict(scenario, {**expected, field: other})["valid"] is False, (field, other)
+            result = verdict(scenario, {**expected, field: other})
+            assert result["valid"] is False and result["score"] < 1.0, (field, other)
 
 
 @pytest.mark.parametrize("scenario", SCENARIOS)
@@ -107,11 +108,16 @@ def test_no_scenario_id_names_a_graded_value() -> None:
             assert word.replace("_", "-") not in member.value, (member.value, word)
 
 
-@pytest.mark.parametrize("scenario", SCENARIOS)
-def test_rounding_once_after_the_sum_equals_rounding_each_drive_in_every_bundled_scenario(scenario: str) -> None:
-    """C8 rounds once after summing. No bundled voucher has two drives that each end in a half cent, so the
-    two readings agree on every scenario; test_rules shows where they would differ (1 + 1 mile at $0.725)."""
-    facts = load_scenario(scenario)
-    tenths = [drive_tenth_cents(world(), drive) for drive in facts["pov_drives"]]
-    assert mileage_cents(world(), facts) == round_half_up_tenths(sum(tenths)) == sum(round_half_up_tenths(part) for part in tenths)
-    assert mileage_cents(world(), facts) == case(scenario)["expected"]["mileage_cents"]
+def test_rounding_once_after_the_sum_differs_from_rounding_each_drive_only_on_the_honolulu_twins() -> None:
+    """C8 rounds once after summing. Only the Honolulu twins have two drives that each end in a half cent
+    (61 mi x 72.5 cents = 4422.5 twice): once gives 8845, each-drive would give 4423 + 4423 = 8846. Every
+    other bundled voucher gives the same answer under both readings."""
+    differing = []
+    for scenario in SCENARIOS:
+        facts = load_scenario(scenario)
+        tenths = [drive_tenth_cents(world(), drive) for drive in facts["pov_drives"]]
+        once, each = round_half_up_tenths(sum(tenths)), sum(round_half_up_tenths(part) for part in tenths)
+        assert mileage_cents(world(), facts) == once == case(scenario)["expected"]["mileage_cents"]
+        if once != each:
+            differing.append((scenario, once, each))
+    assert differing == [("seattle-honolulu-fisheries", 8845, 8846), ("seattle-honolulu-aquaculture", 8845, 8846)]

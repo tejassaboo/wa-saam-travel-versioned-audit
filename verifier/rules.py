@@ -176,13 +176,21 @@ def meals_eligible(world, scenario):
     return scenario["travel_status_minutes"] >= MEAL_MINUTES[kind]
 
 
+def total_cents(scenario, per_night, mileage):
+    """The voucher total (C10): lodging nights x the nightly amount, plus mileage; 0 with neither."""
+    nights = 0 if scenario["lodging"] is None else scenario["lodging"]["nights"]
+    return nights * per_night + mileage
+
+
 def oracle(world, scenario):
     """The one correct audit of ``scenario``, as the task output's plain JSON."""
     basis, per_night = lodging_decision(scenario)
+    mileage = mileage_cents(world, scenario)
     return {
         "reimbursable_cabin": reimbursable_cabin(world, scenario),
-        "mileage_cents": mileage_cents(world, scenario),
+        "mileage_cents": mileage,
         "lodging_basis": basis,
         "lodging_per_night_cents": per_night,
         "meals_eligible_same_day": meals_eligible(world, scenario),
+        "total_reimbursable_cents": total_cents(scenario, per_night, mileage),
     }

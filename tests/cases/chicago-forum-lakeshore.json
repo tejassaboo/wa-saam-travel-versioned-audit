@@ -6,7 +6,8 @@
   "mileage_cents": 9272,
   "lodging_basis": "exception_150",
   "lodging_per_night_cents": 41000,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 173272
  },
  "broken": [
   {
@@ -20,30 +21,41 @@
    "why": "caps at the maximum despite an approved listed exception",
    "change": {
     "lodging_basis": "capped_at_max",
-    "lodging_per_night_cents": 23200
+    "lodging_per_night_cents": 23200,
+    "total_reimbursable_cents": 102072
    },
    "reason": "lodging-basis-correct"
   },
   {
    "why": "pays the 150% cap instead of the lower actual rate",
    "change": {
-    "lodging_per_night_cents": 48600
+    "lodging_per_night_cents": 48600,
+    "total_reimbursable_cents": 203672
    },
    "reason": "lodging-amount-fits-basis"
   },
   {
    "why": "takes 150% of the lodging maximum alone (34800)",
    "change": {
-    "lodging_per_night_cents": 34800
+    "lodging_per_night_cents": 34800,
+    "total_reimbursable_cents": 148472
    },
    "reason": "lodging-amount-fits-basis"
   },
   {
    "why": "counts only one way",
    "change": {
-    "mileage_cents": 4636
+    "mileage_cents": 4636,
+    "total_reimbursable_cents": 168636
    },
    "reason": "mileage-correct"
+  },
+  {
+   "why": "forgets the voucher total",
+   "change": {
+    "total_reimbursable_cents": 0
+   },
+   "reason": "total-matches-claims"
   }
  ]
 }

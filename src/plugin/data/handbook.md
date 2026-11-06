@@ -41,9 +41,10 @@ These settle every point where the real text is vague. The checker enforces exac
   2. rate > cap, approved, conference_venue claimed, attendance_required true, and lowest_advertised_rate_cents not null and > cap: above_150_conference, pay the lower of rate and lowest_advertised_rate_cents (the most economical room).
   3. approved and listed: exception_150, pay the lower of rate and cap. Exactly cap is allowed and pays rate. A room over cap that does not meet step 2 pays cap.
   4. otherwise: capped_at_max, pay max.
-  Step 2 is tested before step 3 because a room over cap at a conference venue would otherwise never reach it. The most-economical-room duty of rule 7 is modelled only in step 2, through lowest_advertised_rate_cents; step 3 never reads that field. With no lodging, lodging_basis is null and lodging_per_night_cents is 0. Taxes and the number of nights are not part of the answer.
+  Step 2 is tested before step 3 because a room over cap at a conference venue would otherwise never reach it. The most-economical-room duty of rule 7 is modelled only in step 2, through lowest_advertised_rate_cents; step 3 never reads that field. With no lodging, lodging_basis is null and lodging_per_night_cents is 0. Taxes are not part of the answer; nights enter only the total (C10).
 - **C8 Mileage.** For each drive, miles × the pov_rate_tenth_cents of the regime on its date, in tenths of a cent. Add the drives, then round once to whole cents, a half cent rounding up: cents = (total_tenths + 5) // 10. With no drives, mileage_cents is 0. (The real text states no rounding rule; this is our toy rule.)
 - **C9 Same-day meals.** On a same-day trip (overnight false), meals_eligible_same_day is true when travel_status_minutes ≥ 660 for an employee, or ≥ 300 for a volunteer or board_member, else false. "At least" includes the threshold. On an overnight trip it is null. The agency-determined meal-period rule is not modelled.
+- **C10 Total.** total_reimbursable_cents = nights × lodging_per_night_cents + mileage_cents, with nights from the lodging claimed (0 when none). Airfare is reimbursed as a cabin, not an amount, and meals as a flag, so neither enters the total. With neither lodging nor a drive it is 0.
 
 ## Rules not in scope
 
@@ -65,4 +66,4 @@ You have 6 steps, each tool call costs one, and the last step may not call tools
 
 1. Call get_voucher with the task's scenario.
 2. Call get_rules_in_effect once with every date you need, each once: departure_date when air is not null, and the date of every POV drive. Skip this step when neither applies.
-3. Apply C1-C9 and call submit with reimbursable_cabin, mileage_cents, lodging_basis, lodging_per_night_cents and meals_eligible_same_day.
+3. Apply C1-C10 and call submit with reimbursable_cabin, mileage_cents, lodging_basis, lodging_per_night_cents, meals_eligible_same_day and total_reimbursable_cents.

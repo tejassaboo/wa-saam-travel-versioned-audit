@@ -36,6 +36,16 @@ class WaScenario(Enum):
     CHICAGO_FORUM_KING = "chicago-forum-king"
     CHICAGO_FORUM_TOWER = "chicago-forum-tower"
     BOSTON_STATE_AUDITORS = "boston-state-auditors"
+    SEATTLE_TOKYO_CERAMICS = "seattle-tokyo-ceramics"
+    SEATTLE_TOKYO_LACQUER = "seattle-tokyo-lacquer"
+    SEATTLE_HONOLULU_FISHERIES = "seattle-honolulu-fisheries"
+    SEATTLE_HONOLULU_AQUACULTURE = "seattle-honolulu-aquaculture"
+    SEATTLE_TOKYO_ROBOTICS = "seattle-tokyo-robotics"
+    CHICAGO_FORUM_DELEGATION = "chicago-forum-delegation"
+    CHICAGO_FORUM_OUTREACH = "chicago-forum-outreach"
+    SPOKANE_BRIDGE_REVIEW = "spokane-bridge-review"
+    BOSTON_LICENSING_HEARING = "boston-licensing-hearing"
+    OLYMPIA_PESTICIDE_HEARING = "olympia-pesticide-hearing"
 
 
 class TravelerType(Enum):
@@ -211,6 +221,11 @@ class WaVoucherOutput(Output):
     ]
     meals_eligible_same_day: Annotated[
         bool | None, "True when a same-day trip earns a meal allowance; null when the trip was overnight"
+    ]
+    total_reimbursable_cents: Annotated[
+        int,
+        "What the state pays on this voucher, USD cents: lodging nights x lodging_per_night_cents plus mileage_cents "
+        "(no fare or meal amount is modelled); 0 when neither lodging nor a drive is claimed",
     ]
 
 

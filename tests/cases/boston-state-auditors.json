@@ -6,13 +6,15 @@
   "mileage_cents": 0,
   "lodging_basis": "above_150_conference",
   "lodging_per_night_cents": 70500,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 211500
  },
  "broken": [
   {
    "why": "pays the pricier room instead of the most economical",
    "change": {
-    "lodging_per_night_cents": 72000
+    "lodging_per_night_cents": 72000,
+    "total_reimbursable_cents": 216000
    },
    "reason": "lodging-amount-fits-basis"
   },
@@ -20,7 +22,8 @@
    "why": "stops at the 150% cap",
    "change": {
     "lodging_basis": "exception_150",
-    "lodging_per_night_cents": 68550
+    "lodging_per_night_cents": 68550,
+    "total_reimbursable_cents": 205650
    },
    "reason": "lodging-basis-correct"
   },
@@ -28,7 +31,8 @@
    "why": "caps at the maximum",
    "change": {
     "lodging_basis": "capped_at_max",
-    "lodging_per_night_cents": 36500
+    "lodging_per_night_cents": 36500,
+    "total_reimbursable_cents": 109500
    },
    "reason": "lodging-basis-correct"
   }

@@ -1,12 +1,13 @@
 {
  "scenario": "seattle-tokyo-apples",
- "note": "600 min > 480 under R2025, but business approval 2025-02-18 came after the 2025-02-10 departure: tourist.",
+ "note": "600 min > 480 under R2025, but business approval 2025-02-18 came after the 2025-02-10 departure: tourist. Drives 2 x 61 mi x 700 (R2025) = 85400 tenths = 8540 cents; total 8540.",
  "expected": {
   "reimbursable_cabin": "tourist",
-  "mileage_cents": 0,
+  "mileage_cents": 8540,
   "lodging_basis": null,
   "lodging_per_night_cents": 0,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 8540
  },
  "broken": [
   {
@@ -22,6 +23,14 @@
     "reimbursable_cabin": null
    },
    "reason": "cabin-matches-air"
+  },
+  {
+   "why": "drops the airport drives",
+   "change": {
+    "mileage_cents": 0,
+    "total_reimbursable_cents": 0
+   },
+   "reason": "mileage-matches-drives"
   }
  ]
 }

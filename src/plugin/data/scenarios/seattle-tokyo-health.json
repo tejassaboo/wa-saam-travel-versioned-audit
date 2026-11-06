@@ -1,6 +1,6 @@
 {
  "scenario": "seattle-tokyo-health",
- "request_text": "Public-health exchange in Tokyo. Business class on CP 51, approved in advance on February 12. I still have about 40,000 agency frequent-flyer miles but I am saving them for the summer conference, so please just pay the business fare. Hotels were direct-billed.",
+ "request_text": "Public-health exchange in Tokyo. Business class on CP 51, approved in advance on February 12. I still have about 40,000 agency frequent-flyer miles but I am saving them for the summer conference, so please just pay the business fare. Drove my own car from Tumwater to Sea-Tac and back, 58 miles each way. Hotels were direct-billed.",
  "traveler_id": "W211",
  "departure_date": "2025-03-03",
  "return_date": "2025-03-07",
@@ -25,6 +25,19 @@
   "business_approval_date": "2025-02-12",
   "unused_state_miles": 40000
  },
- "pov_drives": [],
+ "pov_drives": [
+  {
+   "date": "2025-03-03",
+   "from_place": "Tumwater",
+   "to_place": "Sea-Tac Airport",
+   "miles": 58
+  },
+  {
+   "date": "2025-03-07",
+   "from_place": "Sea-Tac Airport",
+   "to_place": "Tumwater",
+   "miles": 58
+  }
+ ],
  "lodging": null
 }

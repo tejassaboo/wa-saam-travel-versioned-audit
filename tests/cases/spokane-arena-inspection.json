@@ -6,27 +6,31 @@
   "mileage_cents": 45743,
   "lodging_basis": null,
   "lodging_per_night_cents": 0,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 45743
  },
  "broken": [
   {
    "why": "applies the trip's departure-date rate to both drives",
    "change": {
-    "mileage_cents": 44940
+    "mileage_cents": 44940,
+    "total_reimbursable_cents": 44940
    },
    "reason": "mileage-correct"
   },
   {
    "why": "applies the new rate to both drives",
    "change": {
-    "mileage_cents": 46545
+    "mileage_cents": 46545,
+    "total_reimbursable_cents": 46545
    },
    "reason": "mileage-correct"
   },
   {
    "why": "truncates the half cent",
    "change": {
-    "mileage_cents": 45742
+    "mileage_cents": 45742,
+    "total_reimbursable_cents": 45742
    },
    "reason": "mileage-correct"
   },
@@ -34,7 +38,8 @@
    "why": "invents a lodging claim",
    "change": {
     "lodging_basis": "within_max",
-    "lodging_per_night_cents": 11300
+    "lodging_per_night_cents": 11300,
+    "total_reimbursable_cents": 45743
    },
    "reason": "lodging-matches-claim"
   }

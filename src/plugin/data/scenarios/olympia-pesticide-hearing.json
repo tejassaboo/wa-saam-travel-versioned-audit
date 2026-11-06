@@ -1,0 +1,19 @@
+{
+ "scenario": "olympia-pesticide-hearing",
+ "request_text": "Advisory-board member. Drove my own car from Wenatchee to the pesticide rule hearing in Olympia and back the same day, 268 miles in all; out of the house at 7:00 and back at 11:59. Call it five hours on the road: please add the meal allowance.",
+ "traveler_id": "W215",
+ "departure_date": "2025-05-14",
+ "return_date": "2025-05-14",
+ "overnight": false,
+ "travel_status_minutes": 299,
+ "air": null,
+ "pov_drives": [
+  {
+   "date": "2025-05-14",
+   "from_place": "Wenatchee",
+   "to_place": "Olympia and back",
+   "miles": 268
+  }
+ ],
+ "lodging": null
+}

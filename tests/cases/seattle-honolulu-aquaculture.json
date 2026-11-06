@@ -1,0 +1,29 @@
+{
+ "scenario": "seattle-honolulu-aquaculture",
+ "note": "The same routing scheduled 481 min (arrives 13:01): 481 > 480 under R2026A, HNL outside the continental US, approved 2026-01-20 before the 2026-02-16 departure, miles exhausted: business. In-air is only 115 + 331 = 446, which never counts. Drives 2 x 61 mi x 725 = 88450 tenths = 8845 cents; total 8845.",
+ "expected": {
+  "reimbursable_cabin": "business",
+  "mileage_cents": 8845,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 8845
+ },
+ "broken": [
+  {
+   "why": "adds up in-air minutes (446) instead of the scheduled 481",
+   "change": {
+    "reimbursable_cabin": "tourist"
+   },
+   "reason": "cabin-correct"
+  },
+  {
+   "why": "rounds each drive to a cent before summing",
+   "change": {
+    "mileage_cents": 8846,
+    "total_reimbursable_cents": 8846
+   },
+   "reason": "mileage-correct"
+  }
+ ]
+}

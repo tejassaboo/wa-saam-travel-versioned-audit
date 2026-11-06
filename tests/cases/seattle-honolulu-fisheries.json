@@ -1,0 +1,37 @@
+{
+ "scenario": "seattle-honolulu-fisheries",
+ "note": "SEA-SFO-HNL scheduled exactly 480 min (07:00 PST to 13:00 HST) under R2026A, which needs strictly more than 480: tourist. Drives 2 x 61 mi x 725 = 2 x 44225 = 88450 tenths, rounded once: 8845 (rounding each drive would give 4423 + 4423 = 8846). Total 8845. Twin of seattle-honolulu-aquaculture, one scheduled minute longer.",
+ "expected": {
+  "reimbursable_cabin": "tourist",
+  "mileage_cents": 8845,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 8845
+ },
+ "broken": [
+  {
+   "why": "treats exactly eight hours as more than eight",
+   "change": {
+    "reimbursable_cabin": "business"
+   },
+   "reason": "cabin-correct"
+  },
+  {
+   "why": "rounds each drive to a cent before summing",
+   "change": {
+    "mileage_cents": 8846,
+    "total_reimbursable_cents": 8846
+   },
+   "reason": "mileage-correct"
+  },
+  {
+   "why": "uses the 2025 rate in February 2026",
+   "change": {
+    "mileage_cents": 8540,
+    "total_reimbursable_cents": 8540
+   },
+   "reason": "mileage-correct"
+  }
+ ]
+}

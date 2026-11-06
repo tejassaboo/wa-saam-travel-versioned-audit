@@ -1,0 +1,40 @@
+{
+ "scenario": "chicago-forum-delegation",
+ "note": "$520 > the 48600 cap. Approved 2026-09-25, conference_venue claimed and the lowest advertised rate documented at $520, but attendance_required is false, so 10.30.20.b (step 2) fails. Step 3: approved and listed (accompany_official, conference_venue): exception_150, paying the lower of 52000 and the cap, 48600. Total 4 x 48600 = 194400.",
+ "expected": {
+  "reimbursable_cabin": null,
+  "mileage_cents": 0,
+  "lodging_basis": "exception_150",
+  "lodging_per_night_cents": 48600,
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 194400
+ },
+ "broken": [
+  {
+   "why": "grants the above-150% basis without required attendance",
+   "change": {
+    "lodging_basis": "above_150_conference",
+    "lodging_per_night_cents": 52000,
+    "total_reimbursable_cents": 208000
+   },
+   "reason": "lodging-basis-correct"
+  },
+  {
+   "why": "pays the room in full under the 150% exception",
+   "change": {
+    "lodging_per_night_cents": 52000,
+    "total_reimbursable_cents": 208000
+   },
+   "reason": "lodging-amount-fits-basis"
+  },
+  {
+   "why": "caps at the maximum despite an approved listed exception",
+   "change": {
+    "lodging_basis": "capped_at_max",
+    "lodging_per_night_cents": 23200,
+    "total_reimbursable_cents": 92800
+   },
+   "reason": "lodging-basis-correct"
+  }
+ ]
+}

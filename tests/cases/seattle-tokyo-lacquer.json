@@ -1,0 +1,28 @@
+{
+ "scenario": "seattle-tokyo-lacquer",
+ "note": "The same CP 51, 600 min, departing 2025-01-01, the first day of R2025 (> 480): approved 2024-11-22 before departure, miles exhausted, NRT outside the continental US: business. The 2024 booking and approval dates never pick the regime. Twin of seattle-tokyo-ceramics, one day earlier.",
+ "expected": {
+  "reimbursable_cabin": "business",
+  "mileage_cents": 0,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 0
+ },
+ "broken": [
+  {
+   "why": "picks the regime by the 2024 approval date",
+   "change": {
+    "reimbursable_cabin": "tourist"
+   },
+   "reason": "cabin-correct"
+  },
+  {
+   "why": "invents a total with nothing to pay",
+   "change": {
+    "total_reimbursable_cents": 1
+   },
+   "reason": "total-matches-claims"
+  }
+ ]
+}

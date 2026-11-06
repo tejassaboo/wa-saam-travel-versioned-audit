@@ -1,0 +1,30 @@
+{
+ "scenario": "seattle-tokyo-ceramics",
+ "request_text": "Studio-ceramics trade delegation to Tokyo. Flew Cascadia Pacific 51 nonstop (about ten hours) in business on December 31; the director approved business class on November 22 and the agency's frequent-flyer miles are all used up. The 8-hour rule takes effect the day after I left, and I was in the air at midnight, so I trust the new rule applies. Hotels were direct-billed.",
+ "traveler_id": "W216",
+ "departure_date": "2024-12-31",
+ "return_date": "2025-01-05",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "NRT",
+  "segments": [
+   {
+    "flight": "CP 51",
+    "origin": "SEA",
+    "destination": "NRT",
+    "depart_local": "2024-12-31T12:40",
+    "arrive_local": "2025-01-01T15:40",
+    "in_air_minutes": 600
+   }
+  ],
+  "scheduled_one_way_minutes": 600,
+  "cabin_flown": "business",
+  "booking_date": "2024-11-20",
+  "business_approval_date": "2024-11-22",
+  "unused_state_miles": 0
+ },
+ "pov_drives": [],
+ "lodging": null
+}

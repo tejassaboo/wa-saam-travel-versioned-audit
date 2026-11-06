@@ -1,0 +1,26 @@
+{
+ "scenario": "chicago-forum-delegation",
+ "request_text": "I accompanied the State Auditor (an elected official) to the Western States Audit Forum and stayed at the forum hotel, the Lakeshore Grand, in the $520 room next to hers. The hotel's rate sheet is attached and $520 was its lowest advertised rate that week. I was not required to attend the forum myself, I was there as her staff. The deputy approved the lodging exception on September 25. Please pay the full $520.",
+ "traveler_id": "W219",
+ "departure_date": "2026-10-18",
+ "return_date": "2026-10-22",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": null,
+ "pov_drives": [],
+ "lodging": {
+  "location": "Chicago",
+  "hotel": "Lakeshore Grand Hotel",
+  "nights": 4,
+  "nightly_rate_cents": 52000,
+  "max_lodging_cents": 23200,
+  "mie_cents": 9200,
+  "exception_approval_date": "2026-09-25",
+  "claimed_reasons": [
+   "accompany_official",
+   "conference_venue"
+  ],
+  "attendance_required": false,
+  "lowest_advertised_rate_cents": 52000
+ }
+}

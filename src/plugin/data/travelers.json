@@ -12,5 +12,13 @@
  {"traveler_id": "W211", "name": "Sofia Petrakis", "agency": "Department of Health", "traveler_type": "employee"},
  {"traveler_id": "W212", "name": "Lena Vogel", "agency": "Department of Labor and Industries", "traveler_type": "employee"},
  {"traveler_id": "W213", "name": "Marcus Tran", "agency": "Office of the State Auditor", "traveler_type": "employee"},
- {"traveler_id": "W214", "name": "Nadia Kowalczyk", "agency": "Department of Labor and Industries", "traveler_type": "employee"}
+ {"traveler_id": "W214", "name": "Nadia Kowalczyk", "agency": "Department of Labor and Industries", "traveler_type": "employee"},
+ {"traveler_id": "W215", "name": "Ingrid Solberg", "agency": "Pesticide Application Safety Advisory Board", "traveler_type": "board_member"},
+ {"traveler_id": "W216", "name": "Kenji Watanabe-Ross", "agency": "Department of Commerce, Creative Economy", "traveler_type": "employee"},
+ {"traveler_id": "W217", "name": "Maya Delacroix", "agency": "Department of Fish and Wildlife", "traveler_type": "employee"},
+ {"traveler_id": "W218", "name": "Oluwaseun Adeyemi", "agency": "Department of Commerce, Advanced Manufacturing", "traveler_type": "employee"},
+ {"traveler_id": "W219", "name": "Beatriz Camargo", "agency": "Office of the State Auditor", "traveler_type": "employee"},
+ {"traveler_id": "W220", "name": "Finn Gallagher", "agency": "Department of Transportation, Bridge Preservation", "traveler_type": "employee"},
+ {"traveler_id": "W221", "name": "Rosa Delgado-Pike", "agency": "Department of Licensing", "traveler_type": "employee"},
+ {"traveler_id": "W222", "name": "Yusuf Haddad", "agency": "Office of the State Auditor", "traveler_type": "employee"}
 ]

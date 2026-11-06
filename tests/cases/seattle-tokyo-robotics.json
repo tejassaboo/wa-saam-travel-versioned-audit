@@ -1,0 +1,29 @@
+{
+ "scenario": "seattle-tokyo-robotics",
+ "note": "Every business condition holds (600 > 480 under R2025, NRT, approved 2025-08-15 before 2025-09-08, miles 0), but tourist was flown and reimbursable_cabin is the lower of the entitlement and the cabin flown (C6): tourist. Drives 2 x 22 mi x 700 = 30800 tenths = 3080 cents; total 3080.",
+ "expected": {
+  "reimbursable_cabin": "tourist",
+  "mileage_cents": 3080,
+  "lodging_basis": null,
+  "lodging_per_night_cents": 0,
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 3080
+ },
+ "broken": [
+  {
+   "why": "pays the business entitlement on a coach ticket",
+   "change": {
+    "reimbursable_cabin": "business"
+   },
+   "reason": "cabin-within-flown"
+  },
+  {
+   "why": "uses the 2026 rate in September 2025",
+   "change": {
+    "mileage_cents": 3190,
+    "total_reimbursable_cents": 3190
+   },
+   "reason": "mileage-correct"
+  }
+ ]
+}

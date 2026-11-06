@@ -1,0 +1,38 @@
+{
+ "scenario": "spokane-bridge-review",
+ "request_text": "Two-night bridge-preservation review in Spokane. I use a wheelchair and the only accessible room I could find was at the Riverside Inn for $180; the exception was approved on October 30 under the disability provision. Drove my own car Tacoma to Spokane and back, 290 miles each way.",
+ "traveler_id": "W220",
+ "departure_date": "2026-11-09",
+ "return_date": "2026-11-11",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": null,
+ "pov_drives": [
+  {
+   "date": "2026-11-09",
+   "from_place": "Tacoma",
+   "to_place": "Spokane",
+   "miles": 290
+  },
+  {
+   "date": "2026-11-11",
+   "from_place": "Spokane",
+   "to_place": "Tacoma",
+   "miles": 290
+  }
+ ],
+ "lodging": {
+  "location": "Spokane",
+  "hotel": "Riverside Inn",
+  "nights": 2,
+  "nightly_rate_cents": 18000,
+  "max_lodging_cents": 12600,
+  "mie_cents": 8600,
+  "exception_approval_date": "2026-10-30",
+  "claimed_reasons": [
+   "ada_or_safety"
+  ],
+  "attendance_required": false,
+  "lowest_advertised_rate_cents": null
+ }
+}

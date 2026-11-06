@@ -6,7 +6,8 @@
   "mileage_cents": 0,
   "lodging_basis": null,
   "lodging_per_night_cents": 0,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 0
  },
  "broken": [
   {
@@ -26,9 +27,17 @@
   {
    "why": "invents mileage",
    "change": {
-    "mileage_cents": 4087
+    "mileage_cents": 4087,
+    "total_reimbursable_cents": 4087
    },
    "reason": "mileage-matches-drives"
+  },
+  {
+   "why": "invents a total with nothing to pay",
+   "change": {
+    "total_reimbursable_cents": 50000
+   },
+   "reason": "total-matches-claims"
   }
  ]
 }

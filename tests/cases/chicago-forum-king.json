@@ -6,14 +6,16 @@
   "mileage_cents": 0,
   "lodging_basis": "exception_150",
   "lodging_per_night_cents": 48600,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 194400
  },
  "broken": [
   {
    "why": "treats exactly 150% as over the cap",
    "change": {
     "lodging_basis": "capped_at_max",
-    "lodging_per_night_cents": 23200
+    "lodging_per_night_cents": 23200,
+    "total_reimbursable_cents": 92800
    },
    "reason": "lodging-basis-correct"
   },
@@ -27,9 +29,17 @@
   {
    "why": "pays the maximum under the exception basis",
    "change": {
-    "lodging_per_night_cents": 23200
+    "lodging_per_night_cents": 23200,
+    "total_reimbursable_cents": 92800
    },
    "reason": "lodging-amount-fits-basis"
+  },
+  {
+   "why": "totals one night instead of four",
+   "change": {
+    "total_reimbursable_cents": 48600
+   },
+   "reason": "total-fits-parts"
   }
  ]
 }

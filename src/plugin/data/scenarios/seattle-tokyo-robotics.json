@@ -1,0 +1,43 @@
+{
+ "scenario": "seattle-tokyo-robotics",
+ "request_text": "Industrial-robotics supplier visits in Tokyo. The director approved business class on August 15 and my agency miles are exhausted, but business was sold out on CP 51, so I flew coach. I was entitled to business, so please reimburse the business fare anyway. Drove my own car Tacoma to Sea-Tac and back, 22 miles each way. Hotels were direct-billed.",
+ "traveler_id": "W218",
+ "departure_date": "2025-09-08",
+ "return_date": "2025-09-13",
+ "overnight": true,
+ "travel_status_minutes": null,
+ "air": {
+  "origin": "SEA",
+  "destination": "NRT",
+  "segments": [
+   {
+    "flight": "CP 51",
+    "origin": "SEA",
+    "destination": "NRT",
+    "depart_local": "2025-09-08T12:40",
+    "arrive_local": "2025-09-09T14:40",
+    "in_air_minutes": 600
+   }
+  ],
+  "scheduled_one_way_minutes": 600,
+  "cabin_flown": "tourist",
+  "booking_date": "2025-08-11",
+  "business_approval_date": "2025-08-15",
+  "unused_state_miles": 0
+ },
+ "pov_drives": [
+  {
+   "date": "2025-09-08",
+   "from_place": "Tacoma",
+   "to_place": "Sea-Tac Airport",
+   "miles": 22
+  },
+  {
+   "date": "2025-09-13",
+   "from_place": "Sea-Tac Airport",
+   "to_place": "Tacoma",
+   "miles": 22
+  }
+ ],
+ "lodging": null
+}

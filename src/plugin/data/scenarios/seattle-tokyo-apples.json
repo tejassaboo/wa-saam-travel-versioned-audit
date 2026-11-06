@@ -1,6 +1,6 @@
 {
  "scenario": "seattle-tokyo-apples",
- "request_text": "Tokyo apple-export meetings. Flew CP 51 in business. My director was out, so she signed the business-class approval on February 18, after I got back, but she says it is fine. No agency miles left. Hotels were direct-billed.",
+ "request_text": "Tokyo apple-export meetings. Flew CP 51 in business. My director was out, so she signed the business-class approval on February 18, after I got back, but she says it is fine. No agency miles left. Drove my own car from Olympia to Sea-Tac and back, 61 miles each way. Hotels were direct-billed.",
  "traveler_id": "W202",
  "departure_date": "2025-02-10",
  "return_date": "2025-02-14",
@@ -25,6 +25,19 @@
   "business_approval_date": "2025-02-18",
   "unused_state_miles": 0
  },
- "pov_drives": [],
+ "pov_drives": [
+  {
+   "date": "2025-02-10",
+   "from_place": "Olympia",
+   "to_place": "Sea-Tac Airport",
+   "miles": 61
+  },
+  {
+   "date": "2025-02-14",
+   "from_place": "Sea-Tac Airport",
+   "to_place": "Olympia",
+   "miles": 61
+  }
+ ],
  "lodging": null
 }

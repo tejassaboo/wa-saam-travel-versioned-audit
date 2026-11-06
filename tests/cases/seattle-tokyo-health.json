@@ -1,12 +1,13 @@
 {
  "scenario": "seattle-tokyo-health",
- "note": "600 min > 480 and approved in advance, but 40000 state miles remain: tourist.",
+ "note": "600 min > 480 and approved in advance, but 40000 state miles remain: tourist. Drives 2 x 58 mi x 700 (R2025) = 81200 tenths = 8120 cents; total 8120.",
  "expected": {
   "reimbursable_cabin": "tourist",
-  "mileage_cents": 0,
+  "mileage_cents": 8120,
   "lodging_basis": null,
   "lodging_per_night_cents": 0,
-  "meals_eligible_same_day": null
+  "meals_eligible_same_day": null,
+  "total_reimbursable_cents": 8120
  },
  "broken": [
   {
@@ -15,6 +16,14 @@
     "reimbursable_cabin": "business"
    },
    "reason": "cabin-correct"
+  },
+  {
+   "why": "copies a colleague's 61-mile drives",
+   "change": {
+    "mileage_cents": 8540,
+    "total_reimbursable_cents": 8540
+   },
+   "reason": "mileage-correct"
   }
  ]
 }
